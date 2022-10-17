@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="university.University"/>
+    <fullyQualifiedTypeName name="university.UniversityFactory"/>
+    <fullyQualifiedTypeName name="org.eclipse.emf.ecore.EStructuralFeature"/>
+    <fullyQualifiedTypeName name="org.eclipse.emf.ecore.EStructuralFeature.Internal"/>
+</qualifiedTypeNameHistroy>

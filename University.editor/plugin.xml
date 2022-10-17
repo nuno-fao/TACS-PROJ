@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated university -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="university.presentation.UniversityModelWizardID"
+            name="%_UI_UniversityModelWizard_label"
+            class="university.presentation.UniversityModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/UniversityModelFile.gif">
+         <description>%_UI_UniversityModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated university -->
+      <editor
+            id="university.presentation.UniversityEditorID"
+            name="%_UI_UniversityEditor_label"
+            icon="icons/full/obj16/UniversityModelFile.gif"
+            extensions="university"
+            class="university.presentation.UniversityEditor"
+            contributorClass="university.presentation.UniversityActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>
