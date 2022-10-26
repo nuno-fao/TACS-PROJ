@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cV" nsURI="http://www.example.org/cV" nsPrefix="cV">
-  <eClassifiers xsi:type="ecore:EClass" name="CV"/>
+  <eClassifiers xsi:type="ecore:EClass" name="CV">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sections" lowerBound="1"
+        upperBound="-1" eType="#//Section" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Section">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="cv" lowerBound="1" upperBound="-1"
-        eType="#//CV" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="fields" lowerBound="1"
+        upperBound="-1" eType="#//Field" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Field">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="section" lowerBound="1"
-        upperBound="-1" eType="#//Section" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Item" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Item">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="field" upperBound="-1"
-        eType="#//Field" containment="true"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="tablerows" upperBound="-1"
-        eType="#//TableRows" containment="true"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Item"/>
   <eClassifiers xsi:type="ecore:EClass" name="Text" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
@@ -42,10 +40,13 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" lowerBound="1"
         upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="field" lowerBound="1" eType="#//Field"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//TableRows"
+        containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="TableRows">
-    <eStructuralFeatures xsi:type="ecore:EReference" name="table" upperBound="-1"
-        eType="#//Table" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isHeader" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
+        eType="#//Item" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PersonalData" eSuperTypes="#//Section">
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Text"/>
@@ -60,23 +61,35 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="links" upperBound="-1"
         eType="#//URL"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="Education" eSuperTypes="#//Section"/>
+  <eClassifiers xsi:type="ecore:EClass" name="Education" eSuperTypes="#//Section">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="educationEntries" lowerBound="1"
+        upperBound="-1" eType="#//EducationEntry" containment="true"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="JobEntry" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="employer" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="date" lowerBound="1" eType="#//Date"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="workexperience" upperBound="-1"
-        eType="#//WorkExperience" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="EducationEntry" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="level" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="school" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="date" lowerBound="1" eType="#//Date"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="education" lowerBound="1"
-        upperBound="-1" eType="#//Education" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="WorkExperience" eSuperTypes="#//Section"/>
+  <eClassifiers xsi:type="ecore:EClass" name="WorkExperience" eSuperTypes="#//Section">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="jobEntries" lowerBound="1"
+        upperBound="-1" eType="#//JobEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Skills" eSuperTypes="#//Section">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="skills" lowerBound="1"
+        upperBound="-1" eType="#//SkillEntry" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SkillEntry" eSuperTypes="#//Item">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SkillValue" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
 </ecore:EPackage>
