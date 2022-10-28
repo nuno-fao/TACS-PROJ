@@ -8,11 +8,13 @@ GitHub repository for TACS' (22/23) project
 |Daniel Garcia Silva|up201806524|
 |Luís Miguel Pinto|up201806206|
 
-# Metamodel for CVs
+#Assignment 1
+
+## Metamodel for CVs
 
 Concepts|Intrisic Properties|Extrinsic Properties
 -|-|-
-CV | | An arbirtray number of *Sections* <br> One *PersonalData* <br> One *Contacts* <br> At most one *Education* <br> At most one *WorkExperience* 
+CV | | An arbirtray number of *Sections*  
 Section | header: String | An arbitrary number of *Fields*
 Field | title: String | An arbitrary number of *Items*
 PersonalData | | A **name** and an **about me**, two *Texts* <br> A **photo**, one *Image* <br> A **birthdate**, one *Date*
@@ -30,3 +32,47 @@ BibliographicEntry | author: String <br> year: Integer <br> title: String |
 JobEntry | title: String <br> employer: String <br> description: String | One *Date*
 EducationEntry | level: String <br> school: String | One *Date*
 SkillEntry | title: String <br> skillValue: Integer |
+
+## OCL Restrictions
+
+### CV
+
+- **obligatory_personal_data_section** - every ``CV`` must have one ``PersonalData``
+- **obligatory_contacts_section** - every ``CV`` must have one ``Contacts``
+- **at_most_one_education_section** - every ``CV`` can have at most one ``Education``
+- **at_most_one_work_experience_section** - every ``CV`` can have at most one ``WorkExperience``
+
+### Date
+
+- **ending_date_later_than_start_date** - each ``ending_date`` should be later than the corresponding ``start_date``
+
+### BibliographicEntry
+
+- **check_year** - each ``year`` should be a positive Integer
+
+### Table
+
+- **rows_same_length_as_header** - each ``TableRow`` should have the same amount of columns as there are in ``header``, if defined
+
+### PersonalData
+
+- **birthdate_predates_all** - all ``Date``'s should occur after the person's ``birthdate``
+
+### SkillEntry
+
+- **limit_value** - ``value`` is an Integer between 1 and 5
+
+## Metamodel UML
+![metamodel](img/metamodel_a1.jpg)
+
+## Notes on the first assignment
+
+To develop our metamodel we took a sort of reverse engineering aproach. 
+
+After gathering CV's from multiple sources and from people in different working areas we viewed CV's as a bunch of sections. Some of these sections have a somewhat regular structure while others not so much. Despite that, all sections are composed by some basic structured text elements and we started to plan our model from that. The basic structured elements we identified are subclasses of ``Item``.
+
+A ``Field`` should be thought of as a subsection. It can have a title and have multiple ``Item`` or have a ``Table``. A ``Table`` has a list of strings that represents the headers and a bunch of ``TableRow``, where each has ``Items`` for each column.
+
+Furthermore, a ``Section`` is self-explanatory and is composed by ``Field`` while ``CV`` is composed by ``Section``. 
+
+With this, a user has all the tools to make almost anything. Regardless, there is too much freedom and very little structure and thats why we introduced to the metamodel subclasses of ``Section``. Each subclass represents a section that is present in almost every CV in a very similar structure across all of them. Each subclass has a defined set of attributes to use.
