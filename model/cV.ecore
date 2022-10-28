@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="cV" nsURI="http://www.example.org/cV" nsPrefix="cV">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="CV">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="obligatory_personal_data_section obligatory_contacts_section at_most_one_education_section at_most_one_work_experience_section"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="obligatory_personal_data_section" value="PersonalData.allInstances()->size() = 1"/>
+      <details key="obligatory_contacts_section" value="Contacts.allInstances()->size() = 1"/>
+      <details key="at_most_one_education_section" value="Education.allInstances()->size() &lt;= 1"/>
+      <details key="at_most_one_work_experience_section" value="WorkExperience.allInstances()->size() &lt;= 1"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sections" lowerBound="1"
         upperBound="-1" eType="#//Section" containment="true"/>
   </eClassifiers>
@@ -20,6 +37,12 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//Item">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="ending_date_later_than_start_date"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="ending_date_later_than_start_date" value="self.start_date &lt;= self.ending_date"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="start_date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ending_date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
@@ -28,27 +51,45 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Image" eSuperTypes="#//Item">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="width" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="height" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="BibligraphicEntry" eSuperTypes="#//Item">
+  <eClassifiers xsi:type="ecore:EClass" name="BibliographicEntry" eSuperTypes="#//Item">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="check_year"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="check_year" value="self.year > 0"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="author" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="year" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Table">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" lowerBound="1"
-        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="rows_same_length_as_header"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="rows_same_length_as_header" value="self.header->size() = 1 implies self.rows->forAll(r | r.items->size() = self.header->size())"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="field" lowerBound="1" eType="#//Field"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//TableRows"
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//TableRow"
         containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="TableRows">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="isHeader" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TableRow">
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
         eType="#//Item" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PersonalData" eSuperTypes="#//Section">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="birthdate_predates_all"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="birthdate_predates_all" value="Date.allInstances()->forAll(d | d.start_date >= self.birthdate.start_date)"/>
+    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Text"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="photo" eType="#//Image"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="birthdate" eType="#//Date"/>
@@ -83,13 +124,19 @@
         upperBound="-1" eType="#//JobEntry" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Skills" eSuperTypes="#//Section">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="skills" lowerBound="1"
         upperBound="-1" eType="#//SkillEntry" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="SkillEntry" eSuperTypes="#//Item">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="SkillValue" lowerBound="1"
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="limit_value"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="limit_value" value="self.skillValue >= 1 and self.skillValue &lt;= 5"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="title" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="skillValue" lowerBound="1"
         eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
   </eClassifiers>
 </ecore:EPackage>
