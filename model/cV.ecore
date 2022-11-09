@@ -37,12 +37,6 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Date" eSuperTypes="#//Item">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="ending_date_later_than_start_date"/>
-    </eAnnotations>
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="ending_date_later_than_start_date" value="self.start_date &lt;= self.ending_date"/>
-    </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="start_date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="ending_date" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDate"/>
   </eClassifiers>
@@ -83,18 +77,7 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
         eType="#//Item" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PersonalData" eSuperTypes="#//Section">
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="birthdate_predates_all"/>
-    </eAnnotations>
-    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
-      <details key="birthdate_predates_all" value="Date.allInstances()->forAll(d | d.start_date >= self.birthdate.start_date)"/>
-    </eAnnotations>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Text"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="photo" eType="#//Image"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="birthdate" eType="#//Date"/>
-    <eStructuralFeatures xsi:type="ecore:EReference" name="about_me" eType="#//Text"/>
-  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="PersonalData" eSuperTypes="#//Section"/>
   <eClassifiers xsi:type="ecore:EClass" name="Contacts" eSuperTypes="#//Section">
     <eStructuralFeatures xsi:type="ecore:EReference" name="address" eType="#//Text"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="phone" eType="#//Text"/>

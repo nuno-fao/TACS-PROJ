@@ -42,10 +42,6 @@ SkillEntry | title: String <br> skillValue: Integer |
 - **at_most_one_education_section** - every ``CV`` can have at most one ``Education``
 - **at_most_one_work_experience_section** - every ``CV`` can have at most one ``WorkExperience``
 
-### Date
-
-- **ending_date_later_than_start_date** - each ``ending_date`` should be later than the corresponding ``start_date``
-
 ### BibliographicEntry
 
 - **check_year** - each ``year`` should be a positive Integer
@@ -53,10 +49,6 @@ SkillEntry | title: String <br> skillValue: Integer |
 ### Table
 
 - **rows_same_length_as_header** - each ``TableRow`` should have the same amount of columns as there are in ``header``, if defined
-
-### PersonalData
-
-- **birthdate_predates_all** - all ``Date``'s should occur after the person's ``birthdate``
 
 ### SkillEntry
 
