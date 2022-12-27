@@ -21,6 +21,7 @@
     </eAnnotations>
     <eStructuralFeatures xsi:type="ecore:EReference" name="sections" lowerBound="1"
         upperBound="-1" eType="#//Section" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Section">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="header" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
@@ -77,7 +78,12 @@
     <eStructuralFeatures xsi:type="ecore:EReference" name="items" upperBound="-1"
         eType="#//Item" containment="true"/>
   </eClassifiers>
-  <eClassifiers xsi:type="ecore:EClass" name="PersonalData" eSuperTypes="#//Section"/>
+  <eClassifiers xsi:type="ecore:EClass" name="PersonalData" eSuperTypes="#//Section">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="name" eType="#//Text"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="photo" eType="#//Image"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="birthdate" eType="#//Date"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="about_me" eType="#//Text"/>
+  </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Contacts" eSuperTypes="#//Section">
     <eStructuralFeatures xsi:type="ecore:EReference" name="address" eType="#//Text"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="phone" eType="#//Text"/>

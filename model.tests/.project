@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>model</name>
+	<name>model.tests</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -8,27 +8,6 @@
 		<buildCommand>
 			<name>org.eclipse.jdt.core.javabuilder</name>
 			<arguments>
-			</arguments>
-		</buildCommand>
-		<buildCommand>
-			<name>org.eclipse.ocl.pivot.ui.oclbuilder</name>
-			<arguments>
-				<dictionary>
-					<key>disabledExtensions</key>
-					<value>*,essentialocl</value>
-				</dictionary>
-				<dictionary>
-					<key>disabledPaths</key>
-					<value>bin/**,target/**</value>
-				</dictionary>
-				<dictionary>
-					<key>enabledExtensions</key>
-					<value>ecore,ocl,oclinecore,oclstdlib,uml</value>
-				</dictionary>
-				<dictionary>
-					<key>enabledPaths</key>
-					<value>**</value>
-				</dictionary>
 			</arguments>
 		</buildCommand>
 		<buildCommand>
@@ -43,7 +22,6 @@
 		</buildCommand>
 	</buildSpec>
 	<natures>
-		<nature>org.eclipse.ocl.pivot.ui.oclnature</nature>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.pde.PluginNature</nature>
 	</natures>

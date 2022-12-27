@@ -1,23 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel"
-    modelDirectory="/CV/src-gen" creationIcons="false" editDirectory="/CV.edit/src-gen"
-    editorDirectory="/CV.editor/src-gen" modelPluginID="CV" modelName="CV" rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container"
-    codeFormatting="true" importerID="org.eclipse.emf.importer.ecore" complianceLevel="5.0"
-    copyrightFields="false" operationReflection="true" importOrganizing="true">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/model/src" modelPluginID="model" modelName="CV"
+    rootExtendsClass="org.eclipse.emf.ecore.impl.MinimalEObjectImpl$Container" importerID="org.eclipse.emf.importer.ecore"
+    complianceLevel="5.0" copyrightFields="false" operationReflection="true" importOrganizing="true">
   <foreignModel>cV.ecore</foreignModel>
-  <testsDirectory xsi:nil="true"/>
   <genPackages prefix="CV" disposableProviderFactory="true" ecorePackage="cV.ecore#/">
     <genClasses ecoreClass="cV.ecore#//CV">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//CV/cv"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//CV/sections"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//CV/name"/>
     </genClasses>
     <genClasses ecoreClass="cV.ecore#//Section">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//Section/header"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//Section/section"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//Section/fields"/>
     </genClasses>
     <genClasses ecoreClass="cV.ecore#//Field">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//Field/title"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//Field/field"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//Field/items"/>
     </genClasses>
     <genClasses ecoreClass="cV.ecore#//Item"/>
     <genClasses ecoreClass="cV.ecore#//Text">
@@ -35,19 +33,18 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//Image/width"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//Image/height"/>
     </genClasses>
-    <genClasses ecoreClass="cV.ecore#//BibligraphicEntry">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//BibligraphicEntry/author"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//BibligraphicEntry/year"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//BibligraphicEntry/title"/>
+    <genClasses ecoreClass="cV.ecore#//BibliographicEntry">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//BibliographicEntry/author"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//BibliographicEntry/year"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//BibliographicEntry/title"/>
     </genClasses>
     <genClasses ecoreClass="cV.ecore#//Table">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//Table/header"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//Table/field"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//Table/table"/>
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cV.ecore#//Table/field"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//Table/rows"/>
     </genClasses>
-    <genClasses ecoreClass="cV.ecore#//TableRows">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//TableRows/isHeader"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//TableRows/tablerows"/>
+    <genClasses ecoreClass="cV.ecore#//TableRow">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//TableRow/items"/>
     </genClasses>
     <genClasses ecoreClass="cV.ecore#//PersonalData">
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cV.ecore#//PersonalData/name"/>
@@ -62,7 +59,7 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cV.ecore#//Contacts/links"/>
     </genClasses>
     <genClasses ecoreClass="cV.ecore#//Education">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//Education/education"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//Education/educationEntries"/>
     </genClasses>
     <genClasses ecoreClass="cV.ecore#//JobEntry">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//JobEntry/title"/>
@@ -76,15 +73,15 @@
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference cV.ecore#//EducationEntry/date"/>
     </genClasses>
     <genClasses ecoreClass="cV.ecore#//WorkExperience">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//WorkExperience/workexperience"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//WorkExperience/jobEntries"/>
     </genClasses>
     <genClasses ecoreClass="cV.ecore#//Skills">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//Skills/Title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//Skills/title"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference cV.ecore#//Skills/skills"/>
     </genClasses>
     <genClasses ecoreClass="cV.ecore#//SkillEntry">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//SkillEntry/Title"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//SkillEntry/SkillValue"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//SkillEntry/title"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute cV.ecore#//SkillEntry/skillValue"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>
