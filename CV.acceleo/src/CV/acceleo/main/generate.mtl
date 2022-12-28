@@ -4,7 +4,161 @@
 
 [template public generateElement(aCV : CV)]
 [comment @main/]
-[file (aCV.name, false, 'UTF-8')]
+[file ('acceleo.tex', false, 'UTF-8')]
+
+[comment search for personal data/]
+[for (section: Section | aCV.sections) separator('\n')]
+	[comment personal data/]
+	[if section.eClass().name = 'PersonalData']
+	[let pData : PersonalData = section.oclAsType(PersonalData)]
+	\name{ _______ }{[pData.name.value/]}
+
+	\photo{[pData.photo.value/]}
+
+	\personalinfo{
+	    \infoBirthday{[pData.birthdate.start_date.toString()/]}
+	    \infoAddress{[pData.address.value/]}
+	}
+
+	\tagline{
+	[pData.about_me.value/]
+	}
+	[/let]
+	[/if]
+[/for]
+
+\begin{document}
+
+\makeheader
+
+\begin{mainpane}
+[comment remaining sections/]
+[for (section: Section | aCV.sections) separator('\n')]
+	[comment education data/]
+	[if section.eClass().name = 'Education']
+	[let eduData : Education = section.oclAsType(Education)]
+	\begin{mainsection}{Education}
+		[for (education: EducationEntry | eduData.educationEntries) separator('\n')]
+			\entryJob
+            {[education.level/] in [education.title/]}
+            {[education.school/]}
+            {[education.date.start_date.toString()/] -- [education.date.ending_date.toString()/]}
+		[/for]
+	\end{mainsection}
+	[/let]
+	[comment work data/]
+	[elseif section.eClass().name = 'WorkExperience']
+	[let jobData : WorkExperience = section.oclAsType(WorkExperience)]
+	\begin{mainsection}{Work Experience}
+		[for (job: JobEntry | jobData.jobEntries) separator('\n')]
+			\entryJob
+            {[job.title/] }
+			['['/] [job.description/] ]
+            {[job.employer/]}
+            {[job.date.start_date.toString()/] -- [job.date.ending_date.toString()/]}
+		[/for]
+	\end{mainsection}
+	[/let]
+	[comment skills data/]
+	[elseif section.eClass().name = 'Skills']
+	[let skillData : Skills = section.oclAsType(Skills)]
+	\begin{mainsection}{Skills}
+		\entrySkills['['/][skillData.title/]]{
+		[for (skill: SkillEntry | skillData.skills) separator('\n')]
+			\skill{[skill.title/]}{[skill.skillValue/]}
+		[/for]
+ 		}
+	\end{mainsection}
+	[/let]
+	[comment contacts data/]
+	[elseif section.eClass().name = 'Contacts']
+	[let contactData : Contacts = section.oclAsType(Contacts)]
+	\begin{mainsection}{Contacts}
+		\infoPhone{[contactData.phone.value/]}
+		\infoEmail{[contactData.email.value/]}['['/]mailto:[contactData.email.value/]]
+		[for (link: URL | contactData.links) separator('\n')]
+		\infoLink{[link.name/]}['['/][link.value/]]
+		[/for]
+	\end{mainsection}
+	[/let]
+	[comment contacts data/]
+	[elseif section.eClass().name = 'Contacts']
+	[let contactData : Contacts = section.oclAsType(Contacts)]
+	\begin{mainsection}{Contacts}
+		\infoPhone{[contactData.phone.value/]}
+		\infoEmail{[contactData.email.value/]}['['/]mailto:[contactData.email.value/]]
+		[for (link: URL | contactData.links) separator('\n')]
+		\infoLink{[link.name/]}['['/][link.value/]]
+		[/for]
+	\end{mainsection}
+	[/let]
+	[comment generic section/]
+	[elseif section.eClass().name <> 'PersonalData']
+	\begin{mainsection}{[section.header/]}
+	[comment iterate fields/]
+	[for (field: Field | section.fields) separator('\n')]
+		\entryGeneric{[field.title/]}
+		[comment iterate generic items/]
+		[for (item: Item | field.items) separator('\n')]
+			[if item.eClass().name = 'Text']
+			[let textItem : Text = item.oclAsType(Text)]
+			['['/]\infoText{[textItem.value/]}]
+			[/let]
+			[elseif item.eClass().name = 'Date']
+			[let dateItem : Date = item.oclAsType(Date)]
+			['['/]\infoText{[dateItem.start_date/] -- [dateItem.ending_date/]}]
+			[/let]	
+			[elseif item.eClass().name = 'Image']
+			[let imageItem : Image = item.oclAsType(Image)]
+			['['/]\photo{[imageItem.value/]}]
+			[/let]	
+			[elseif item.eClass().name = 'URL']
+			[let urlItem : URL = item.oclAsType(URL)]
+			['['/]\infoLink{[urlItem.name/]}['['/][urlItem.value/]]]
+			[/let]	
+			[elseif item.eClass().name = 'SkillEntry']
+			[let skillItem : SkillEntry = item.oclAsType(SkillEntry)]
+			['['/]\skill{[skillItem.title/]}{[skillItem.skillValue/]}]
+			[/let]	
+			[elseif item.eClass().name = 'JobEntry']
+			[let jobItem : JobEntry = item.oclAsType(JobEntry)]
+			['['/]
+			\entryJob
+            {[jobItem.title/] }
+			['['/] [jobItem.description/] ]
+            {[jobItem.employer/]}
+            {[jobItem.date.start_date.toString()/] -- [jobItem.date.ending_date.toString()/]}
+			]
+			[/let]	
+			[elseif item.eClass().name = 'EducationEntry']
+			[let educationItem : EducationEntry = item.oclAsType(EducationEntry)]
+			['['/]
+			\entryJob
+            {[educationItem.level/] in [educationItem.title/]}
+            {[educationItem.school/]}
+            {[educationItem.date.start_date.toString()/] -- [educationItem.date.ending_date.toString()/]}
+			]
+			[/let]	
+			[elseif item.eClass().name = 'BibliographicEntry']
+			[let bibItem : BibliographicEntry = item.oclAsType(BibliographicEntry)]
+			['['/]
+			 \entryPub
+            {[bibItem.title/]}
+            {[bibItem.description/]}
+            {[bibItem.author/] ([bibItem.year/])}
+            {[bibItem.url.name/]}
+            ['['/][bibItem.url.value/]]
+			]
+			[/let]	
+			[/if]
+		[/for]
+	[/for]
+	\end{mainsection}
+	[/if]
+[/for]
+\end{mainpane}
+
+\end{document}
 
 
 [/file]
