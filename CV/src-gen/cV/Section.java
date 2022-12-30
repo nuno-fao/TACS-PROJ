@@ -31,7 +31,7 @@ public interface Section extends EObject {
 	 * @return the value of the '<em>Header</em>' attribute.
 	 * @see #setHeader(String)
 	 * @see cV.CVPackage#getSection_Header()
-	 * @model
+	 * @model required="true"
 	 * @generated
 	 */
 	String getHeader();
@@ -53,7 +53,7 @@ public interface Section extends EObject {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Fields</em>' containment reference list.
 	 * @see cV.CVPackage#getSection_Fields()
-	 * @model containment="true" required="true"
+	 * @model containment="true"
 	 * @generated
 	 */
 	EList<Field> getFields();

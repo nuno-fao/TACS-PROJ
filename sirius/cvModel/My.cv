@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cV:CV xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cV="http://www.example.org/cV" name="John Doe"
-    xsi:schemaLocation="http://www.example.org/cV cV.ecore">
+<cV:CV xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cV="http://www.example.org/cV" name="John Doe" xsi:schemaLocation="http://www.example.org/cV cV.ecore">
   <sections xsi:type="cV:PersonalData" header="Personal Data">
     <fields title="Nationalities">
       <items xsi:type="cV:Text" value="Portuguese"/>
@@ -39,7 +38,9 @@
   </sections>
   <sections xsi:type="cV:WorkExperience" header="Work Experience">
     <fields title="Education Jobs">
-      <items xsi:type="cV:JobEntry" title="Summer Camp Monitor" employer="City Council" description="Taking care of and entertaining children"/>
+      <items xsi:type="cV:JobEntry" title="Summer Camp Monitor" employer="City Council" description="Taking care of and entertaining children">
+        <date start_date="Summer 2020"/>
+      </items>
     </fields>
     <jobEntries title="Junior developer" employer="YourCompanyTM" description="E-commerce software developer">
       <date start_date="March 2020" ending_date="August 2020"/>

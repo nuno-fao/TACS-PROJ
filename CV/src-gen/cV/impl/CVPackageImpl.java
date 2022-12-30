@@ -1095,9 +1095,9 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(sectionEClass, Section.class, "Section", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getSection_Header(), ecorePackage.getEString(), "header", null, 0, 1, Section.class,
+		initEAttribute(getSection_Header(), ecorePackage.getEString(), "header", null, 1, 1, Section.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getSection_Fields(), this.getField(), null, "fields", null, 1, -1, Section.class, !IS_TRANSIENT,
+		initEReference(getSection_Fields(), this.getField(), null, "fields", null, 0, -1, Section.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
