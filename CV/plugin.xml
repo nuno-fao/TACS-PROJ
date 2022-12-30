@@ -10,7 +10,8 @@
       <!-- @generated cV -->
       <package
             uri="http://www.example.org/cV"
-            class="cV.CVPackage"/>
+            class="cV.CVPackage"
+            genModel="model/cV.genmodel"/>
    </extension>
 
 </plugin>

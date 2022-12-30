@@ -267,6 +267,15 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCV_Name() {
+		return (EAttribute) cvEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EOperation getCV__Obligatory_contacts_section__DiagnosticChain_Map() {
 		return cvEClass.getEOperations().get(0);
 	}
@@ -429,6 +438,15 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getURL_Name() {
+		return (EAttribute) urlEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getImage() {
 		return imageEClass;
 	}
@@ -494,6 +512,24 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 	 */
 	public EAttribute getBibliographicEntry_Title() {
 		return (EAttribute) bibliographicEntryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getBibliographicEntry_Description() {
+		return (EAttribute) bibliographicEntryEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getBibliographicEntry_Url() {
+		return (EReference) bibliographicEntryEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -582,6 +618,51 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getPersonalData_Name() {
+		return (EReference) personalDataEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPersonalData_Photo() {
+		return (EReference) personalDataEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPersonalData_Birthdate() {
+		return (EReference) personalDataEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPersonalData_About_me() {
+		return (EReference) personalDataEClass.getEStructuralFeatures().get(3);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPersonalData_Address() {
+		return (EReference) personalDataEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getContacts() {
 		return contactsEClass;
 	}
@@ -591,7 +672,7 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContacts_Address() {
+	public EReference getContacts_Phone() {
 		return (EReference) contactsEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -600,7 +681,7 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContacts_Phone() {
+	public EReference getContacts_Email() {
 		return (EReference) contactsEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -609,17 +690,8 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getContacts_Email() {
-		return (EReference) contactsEClass.getEStructuralFeatures().get(2);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EReference getContacts_Links() {
-		return (EReference) contactsEClass.getEStructuralFeatures().get(3);
+		return (EReference) contactsEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -719,6 +791,15 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 	 */
 	public EReference getEducationEntry_Date() {
 		return (EReference) educationEntryEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EAttribute getEducationEntry_Title() {
+		return (EAttribute) educationEntryEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -833,6 +914,7 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 		// Create classes and their features
 		cvEClass = createEClass(CV);
 		createEReference(cvEClass, CV__SECTIONS);
+		createEAttribute(cvEClass, CV__NAME);
 		createEOperation(cvEClass, CV___OBLIGATORY_CONTACTS_SECTION__DIAGNOSTICCHAIN_MAP);
 		createEOperation(cvEClass, CV___OBLIGATORY_PERSONAL_DATA_SECTION__DIAGNOSTICCHAIN_MAP);
 		createEOperation(cvEClass, CV___AT_MOST_ONE_EDUCATION_SECTION__DIAGNOSTICCHAIN_MAP);
@@ -857,6 +939,7 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 
 		urlEClass = createEClass(URL);
 		createEAttribute(urlEClass, URL__VALUE);
+		createEAttribute(urlEClass, URL__NAME);
 
 		imageEClass = createEClass(IMAGE);
 		createEAttribute(imageEClass, IMAGE__VALUE);
@@ -867,6 +950,8 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 		createEAttribute(bibliographicEntryEClass, BIBLIOGRAPHIC_ENTRY__AUTHOR);
 		createEAttribute(bibliographicEntryEClass, BIBLIOGRAPHIC_ENTRY__YEAR);
 		createEAttribute(bibliographicEntryEClass, BIBLIOGRAPHIC_ENTRY__TITLE);
+		createEAttribute(bibliographicEntryEClass, BIBLIOGRAPHIC_ENTRY__DESCRIPTION);
+		createEReference(bibliographicEntryEClass, BIBLIOGRAPHIC_ENTRY__URL);
 		createEOperation(bibliographicEntryEClass, BIBLIOGRAPHIC_ENTRY___CHECK_YEAR__DIAGNOSTICCHAIN_MAP);
 
 		tableEClass = createEClass(TABLE);
@@ -879,9 +964,13 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 		createEReference(tableRowEClass, TABLE_ROW__ITEMS);
 
 		personalDataEClass = createEClass(PERSONAL_DATA);
+		createEReference(personalDataEClass, PERSONAL_DATA__NAME);
+		createEReference(personalDataEClass, PERSONAL_DATA__PHOTO);
+		createEReference(personalDataEClass, PERSONAL_DATA__BIRTHDATE);
+		createEReference(personalDataEClass, PERSONAL_DATA__ABOUT_ME);
+		createEReference(personalDataEClass, PERSONAL_DATA__ADDRESS);
 
 		contactsEClass = createEClass(CONTACTS);
-		createEReference(contactsEClass, CONTACTS__ADDRESS);
 		createEReference(contactsEClass, CONTACTS__PHONE);
 		createEReference(contactsEClass, CONTACTS__EMAIL);
 		createEReference(contactsEClass, CONTACTS__LINKS);
@@ -899,6 +988,7 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 		createEAttribute(educationEntryEClass, EDUCATION_ENTRY__LEVEL);
 		createEAttribute(educationEntryEClass, EDUCATION_ENTRY__SCHOOL);
 		createEReference(educationEntryEClass, EDUCATION_ENTRY__DATE);
+		createEAttribute(educationEntryEClass, EDUCATION_ENTRY__TITLE);
 
 		workExperienceEClass = createEClass(WORK_EXPERIENCE);
 		createEReference(workExperienceEClass, WORK_EXPERIENCE__JOB_ENTRIES);
@@ -961,6 +1051,8 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 		initEReference(getCV_Sections(), this.getSection(), null, "sections", null, 1, -1, cV.CV.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
+		initEAttribute(getCV_Name(), ecorePackage.getEString(), "name", null, 1, 1, cV.CV.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = initEOperation(getCV__Obligatory_contacts_section__DiagnosticChain_Map(),
 				ecorePackage.getEBoolean(), "obligatory_contacts_section", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1023,13 +1115,15 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(dateEClass, Date.class, "Date", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getDate_Start_date(), ecorePackage.getEDate(), "start_date", null, 0, 1, Date.class,
+		initEAttribute(getDate_Start_date(), ecorePackage.getEString(), "start_date", null, 0, 1, Date.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEAttribute(getDate_Ending_date(), ecorePackage.getEDate(), "ending_date", null, 0, 1, Date.class,
+		initEAttribute(getDate_Ending_date(), ecorePackage.getEString(), "ending_date", null, 0, 1, Date.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(urlEClass, cV.URL.class, "URL", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getURL_Value(), ecorePackage.getEString(), "value", null, 0, 1, cV.URL.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getURL_Name(), ecorePackage.getEString(), "name", null, 0, 1, cV.URL.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(imageEClass, Image.class, "Image", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1051,6 +1145,12 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 		initEAttribute(getBibliographicEntry_Title(), ecorePackage.getEString(), "title", null, 0, 1,
 				BibliographicEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
+		initEAttribute(getBibliographicEntry_Description(), ecorePackage.getEString(), "description", null, 0, 1,
+				BibliographicEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
+				!IS_DERIVED, IS_ORDERED);
+		initEReference(getBibliographicEntry_Url(), this.getURL(), null, "url", null, 1, 1, BibliographicEntry.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		op = initEOperation(getBibliographicEntry__Check_year__DiagnosticChain_Map(), ecorePackage.getEBoolean(),
 				"check_year", 0, 1, IS_UNIQUE, IS_ORDERED);
@@ -1066,7 +1166,7 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 		initEAttribute(getTable_Header(), ecorePackage.getEString(), "header", null, 0, -1, Table.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getTable_Field(), this.getField(), null, "field", null, 1, 1, Table.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 		initEReference(getTable_Rows(), this.getTableRow(), null, "rows", null, 0, -1, Table.class, !IS_TRANSIENT,
 				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
@@ -1090,20 +1190,32 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 
 		initEClass(personalDataEClass, PersonalData.class, "PersonalData", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPersonalData_Name(), this.getText(), null, "name", null, 1, 1, PersonalData.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPersonalData_Photo(), this.getImage(), null, "photo", null, 1, 1, PersonalData.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPersonalData_Birthdate(), this.getDate(), null, "birthdate", null, 1, 1, PersonalData.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPersonalData_About_me(), this.getText(), null, "about_me", null, 1, 1, PersonalData.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getPersonalData_Address(), this.getText(), null, "address", null, 1, 1, PersonalData.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(contactsEClass, Contacts.class, "Contacts", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getContacts_Address(), this.getText(), null, "address", null, 0, 1, Contacts.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
-				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getContacts_Phone(), this.getText(), null, "phone", null, 0, 1, Contacts.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+		initEReference(getContacts_Phone(), this.getText(), null, "phone", null, 1, 1, Contacts.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getContacts_Email(), this.getText(), null, "email", null, 0, 1, Contacts.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+		initEReference(getContacts_Email(), this.getText(), null, "email", null, 1, 1, Contacts.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
-		initEReference(getContacts_Links(), this.getURL(), null, "links", null, 0, -1, Contacts.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+		initEReference(getContacts_Links(), this.getURL(), null, "links", null, 1, -1, Contacts.class, !IS_TRANSIENT,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 
 		initEClass(educationEClass, Education.class, "Education", !IS_ABSTRACT, !IS_INTERFACE,
@@ -1119,7 +1231,7 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 		initEAttribute(getJobEntry_Employer(), ecorePackage.getEString(), "employer", null, 1, 1, JobEntry.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getJobEntry_Date(), this.getDate(), null, "date", null, 1, 1, JobEntry.class, !IS_TRANSIENT,
-				!IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
+				!IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED,
 				IS_ORDERED);
 		initEAttribute(getJobEntry_Description(), ecorePackage.getEString(), "description", null, 0, 1, JobEntry.class,
 				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1132,8 +1244,10 @@ public class CVPackageImpl extends EPackageImpl implements CVPackage {
 				EducationEntry.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE,
 				!IS_DERIVED, IS_ORDERED);
 		initEReference(getEducationEntry_Date(), this.getDate(), null, "date", null, 1, 1, EducationEntry.class,
-				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE,
 				IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEAttribute(getEducationEntry_Title(), ecorePackage.getEString(), "title", null, 0, 1, EducationEntry.class,
+				!IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		initEClass(workExperienceEClass, WorkExperience.class, "WorkExperience", !IS_ABSTRACT, !IS_INTERFACE,
 				IS_GENERATED_INSTANCE_CLASS);

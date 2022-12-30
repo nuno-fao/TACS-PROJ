@@ -10,6 +10,7 @@ import cV.URL;
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.EList;
 
@@ -18,7 +19,8 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+import org.eclipse.emf.ecore.util.EObjectContainmentEList;
+import org.eclipse.emf.ecore.util.InternalEList;
 
 /**
  * <!-- begin-user-doc -->
@@ -28,7 +30,6 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link cV.impl.ContactsImpl#getAddress <em>Address</em>}</li>
  *   <li>{@link cV.impl.ContactsImpl#getPhone <em>Phone</em>}</li>
  *   <li>{@link cV.impl.ContactsImpl#getEmail <em>Email</em>}</li>
  *   <li>{@link cV.impl.ContactsImpl#getLinks <em>Links</em>}</li>
@@ -38,17 +39,7 @@ import org.eclipse.emf.ecore.util.EObjectResolvingEList;
  */
 public class ContactsImpl extends SectionImpl implements Contacts {
 	/**
-	 * The cached value of the '{@link #getAddress() <em>Address</em>}' reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getAddress()
-	 * @generated
-	 * @ordered
-	 */
-	protected Text address;
-
-	/**
-	 * The cached value of the '{@link #getPhone() <em>Phone</em>}' reference.
+	 * The cached value of the '{@link #getPhone() <em>Phone</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getPhone()
@@ -58,7 +49,7 @@ public class ContactsImpl extends SectionImpl implements Contacts {
 	protected Text phone;
 
 	/**
-	 * The cached value of the '{@link #getEmail() <em>Email</em>}' reference.
+	 * The cached value of the '{@link #getEmail() <em>Email</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getEmail()
@@ -68,7 +59,7 @@ public class ContactsImpl extends SectionImpl implements Contacts {
 	protected Text email;
 
 	/**
-	 * The cached value of the '{@link #getLinks() <em>Links</em>}' reference list.
+	 * The cached value of the '{@link #getLinks() <em>Links</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getLinks()
@@ -101,55 +92,7 @@ public class ContactsImpl extends SectionImpl implements Contacts {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Text getAddress() {
-		if (address != null && address.eIsProxy()) {
-			InternalEObject oldAddress = (InternalEObject) address;
-			address = (Text) eResolveProxy(oldAddress);
-			if (address != oldAddress) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CVPackage.CONTACTS__ADDRESS, oldAddress,
-							address));
-			}
-		}
-		return address;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public Text basicGetAddress() {
-		return address;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setAddress(Text newAddress) {
-		Text oldAddress = address;
-		address = newAddress;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.CONTACTS__ADDRESS, oldAddress, address));
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public Text getPhone() {
-		if (phone != null && phone.eIsProxy()) {
-			InternalEObject oldPhone = (InternalEObject) phone;
-			phone = (Text) eResolveProxy(oldPhone);
-			if (phone != oldPhone) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CVPackage.CONTACTS__PHONE, oldPhone,
-							phone));
-			}
-		}
 		return phone;
 	}
 
@@ -158,8 +101,18 @@ public class ContactsImpl extends SectionImpl implements Contacts {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Text basicGetPhone() {
-		return phone;
+	public NotificationChain basicSetPhone(Text newPhone, NotificationChain msgs) {
+		Text oldPhone = phone;
+		phone = newPhone;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CVPackage.CONTACTS__PHONE,
+					oldPhone, newPhone);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -168,10 +121,19 @@ public class ContactsImpl extends SectionImpl implements Contacts {
 	 * @generated
 	 */
 	public void setPhone(Text newPhone) {
-		Text oldPhone = phone;
-		phone = newPhone;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.CONTACTS__PHONE, oldPhone, phone));
+		if (newPhone != phone) {
+			NotificationChain msgs = null;
+			if (phone != null)
+				msgs = ((InternalEObject) phone).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - CVPackage.CONTACTS__PHONE, null, msgs);
+			if (newPhone != null)
+				msgs = ((InternalEObject) newPhone).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - CVPackage.CONTACTS__PHONE, null, msgs);
+			msgs = basicSetPhone(newPhone, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.CONTACTS__PHONE, newPhone, newPhone));
 	}
 
 	/**
@@ -180,15 +142,6 @@ public class ContactsImpl extends SectionImpl implements Contacts {
 	 * @generated
 	 */
 	public Text getEmail() {
-		if (email != null && email.eIsProxy()) {
-			InternalEObject oldEmail = (InternalEObject) email;
-			email = (Text) eResolveProxy(oldEmail);
-			if (email != oldEmail) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CVPackage.CONTACTS__EMAIL, oldEmail,
-							email));
-			}
-		}
 		return email;
 	}
 
@@ -197,8 +150,18 @@ public class ContactsImpl extends SectionImpl implements Contacts {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Text basicGetEmail() {
-		return email;
+	public NotificationChain basicSetEmail(Text newEmail, NotificationChain msgs) {
+		Text oldEmail = email;
+		email = newEmail;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CVPackage.CONTACTS__EMAIL,
+					oldEmail, newEmail);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -207,10 +170,19 @@ public class ContactsImpl extends SectionImpl implements Contacts {
 	 * @generated
 	 */
 	public void setEmail(Text newEmail) {
-		Text oldEmail = email;
-		email = newEmail;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.CONTACTS__EMAIL, oldEmail, email));
+		if (newEmail != email) {
+			NotificationChain msgs = null;
+			if (email != null)
+				msgs = ((InternalEObject) email).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - CVPackage.CONTACTS__EMAIL, null, msgs);
+			if (newEmail != null)
+				msgs = ((InternalEObject) newEmail).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - CVPackage.CONTACTS__EMAIL, null, msgs);
+			msgs = basicSetEmail(newEmail, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.CONTACTS__EMAIL, newEmail, newEmail));
 	}
 
 	/**
@@ -220,7 +192,7 @@ public class ContactsImpl extends SectionImpl implements Contacts {
 	 */
 	public EList<URL> getLinks() {
 		if (links == null) {
-			links = new EObjectResolvingEList<URL>(URL.class, this, CVPackage.CONTACTS__LINKS);
+			links = new EObjectContainmentEList<URL>(URL.class, this, CVPackage.CONTACTS__LINKS);
 		}
 		return links;
 	}
@@ -231,20 +203,30 @@ public class ContactsImpl extends SectionImpl implements Contacts {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case CVPackage.CONTACTS__PHONE:
+			return basicSetPhone(null, msgs);
+		case CVPackage.CONTACTS__EMAIL:
+			return basicSetEmail(null, msgs);
+		case CVPackage.CONTACTS__LINKS:
+			return ((InternalEList<?>) getLinks()).basicRemove(otherEnd, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-		case CVPackage.CONTACTS__ADDRESS:
-			if (resolve)
-				return getAddress();
-			return basicGetAddress();
 		case CVPackage.CONTACTS__PHONE:
-			if (resolve)
-				return getPhone();
-			return basicGetPhone();
+			return getPhone();
 		case CVPackage.CONTACTS__EMAIL:
-			if (resolve)
-				return getEmail();
-			return basicGetEmail();
+			return getEmail();
 		case CVPackage.CONTACTS__LINKS:
 			return getLinks();
 		}
@@ -260,9 +242,6 @@ public class ContactsImpl extends SectionImpl implements Contacts {
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-		case CVPackage.CONTACTS__ADDRESS:
-			setAddress((Text) newValue);
-			return;
 		case CVPackage.CONTACTS__PHONE:
 			setPhone((Text) newValue);
 			return;
@@ -285,9 +264,6 @@ public class ContactsImpl extends SectionImpl implements Contacts {
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-		case CVPackage.CONTACTS__ADDRESS:
-			setAddress((Text) null);
-			return;
 		case CVPackage.CONTACTS__PHONE:
 			setPhone((Text) null);
 			return;
@@ -309,8 +285,6 @@ public class ContactsImpl extends SectionImpl implements Contacts {
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-		case CVPackage.CONTACTS__ADDRESS:
-			return address != null;
 		case CVPackage.CONTACTS__PHONE:
 			return phone != null;
 		case CVPackage.CONTACTS__EMAIL:

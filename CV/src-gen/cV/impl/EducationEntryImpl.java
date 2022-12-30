@@ -7,6 +7,7 @@ import cV.Date;
 import cV.EducationEntry;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -24,6 +25,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *   <li>{@link cV.impl.EducationEntryImpl#getLevel <em>Level</em>}</li>
  *   <li>{@link cV.impl.EducationEntryImpl#getSchool <em>School</em>}</li>
  *   <li>{@link cV.impl.EducationEntryImpl#getDate <em>Date</em>}</li>
+ *   <li>{@link cV.impl.EducationEntryImpl#getTitle <em>Title</em>}</li>
  * </ul>
  *
  * @generated
@@ -70,7 +72,7 @@ public class EducationEntryImpl extends ItemImpl implements EducationEntry {
 	protected String school = SCHOOL_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' reference.
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDate()
@@ -78,6 +80,26 @@ public class EducationEntryImpl extends ItemImpl implements EducationEntry {
 	 * @ordered
 	 */
 	protected Date date;
+
+	/**
+	 * The default value of the '{@link #getTitle() <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String TITLE_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getTitle() <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getTitle()
+	 * @generated
+	 * @ordered
+	 */
+	protected String title = TITLE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -147,15 +169,6 @@ public class EducationEntryImpl extends ItemImpl implements EducationEntry {
 	 * @generated
 	 */
 	public Date getDate() {
-		if (date != null && date.eIsProxy()) {
-			InternalEObject oldDate = (InternalEObject) date;
-			date = (Date) eResolveProxy(oldDate);
-			if (date != oldDate) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CVPackage.EDUCATION_ENTRY__DATE, oldDate,
-							date));
-			}
-		}
 		return date;
 	}
 
@@ -164,8 +177,18 @@ public class EducationEntryImpl extends ItemImpl implements EducationEntry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date basicGetDate() {
-		return date;
+	public NotificationChain basicSetDate(Date newDate, NotificationChain msgs) {
+		Date oldDate = date;
+		date = newDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					CVPackage.EDUCATION_ENTRY__DATE, oldDate, newDate);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -174,10 +197,54 @@ public class EducationEntryImpl extends ItemImpl implements EducationEntry {
 	 * @generated
 	 */
 	public void setDate(Date newDate) {
-		Date oldDate = date;
-		date = newDate;
+		if (newDate != date) {
+			NotificationChain msgs = null;
+			if (date != null)
+				msgs = ((InternalEObject) date).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - CVPackage.EDUCATION_ENTRY__DATE, null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject) newDate).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - CVPackage.EDUCATION_ENTRY__DATE, null, msgs);
+			msgs = basicSetDate(newDate, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.EDUCATION_ENTRY__DATE, newDate, newDate));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getTitle() {
+		return title;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setTitle(String newTitle) {
+		String oldTitle = title;
+		title = newTitle;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.EDUCATION_ENTRY__DATE, oldDate, date));
+			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.EDUCATION_ENTRY__TITLE, oldTitle, title));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case CVPackage.EDUCATION_ENTRY__DATE:
+			return basicSetDate(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
 
 	/**
@@ -193,9 +260,9 @@ public class EducationEntryImpl extends ItemImpl implements EducationEntry {
 		case CVPackage.EDUCATION_ENTRY__SCHOOL:
 			return getSchool();
 		case CVPackage.EDUCATION_ENTRY__DATE:
-			if (resolve)
-				return getDate();
-			return basicGetDate();
+			return getDate();
+		case CVPackage.EDUCATION_ENTRY__TITLE:
+			return getTitle();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -216,6 +283,9 @@ public class EducationEntryImpl extends ItemImpl implements EducationEntry {
 			return;
 		case CVPackage.EDUCATION_ENTRY__DATE:
 			setDate((Date) newValue);
+			return;
+		case CVPackage.EDUCATION_ENTRY__TITLE:
+			setTitle((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -238,6 +308,9 @@ public class EducationEntryImpl extends ItemImpl implements EducationEntry {
 		case CVPackage.EDUCATION_ENTRY__DATE:
 			setDate((Date) null);
 			return;
+		case CVPackage.EDUCATION_ENTRY__TITLE:
+			setTitle(TITLE_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -256,6 +329,8 @@ public class EducationEntryImpl extends ItemImpl implements EducationEntry {
 			return SCHOOL_EDEFAULT == null ? school != null : !SCHOOL_EDEFAULT.equals(school);
 		case CVPackage.EDUCATION_ENTRY__DATE:
 			return date != null;
+		case CVPackage.EDUCATION_ENTRY__TITLE:
+			return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -275,6 +350,8 @@ public class EducationEntryImpl extends ItemImpl implements EducationEntry {
 		result.append(level);
 		result.append(", school: ");
 		result.append(school);
+		result.append(", title: ");
+		result.append(title);
 		result.append(')');
 		return result.toString();
 	}

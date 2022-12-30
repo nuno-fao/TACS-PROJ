@@ -2,6 +2,7 @@
  */
 package cV.provider;
 
+import cV.CVFactory;
 import cV.CVPackage;
 import cV.Contacts;
 
@@ -11,8 +12,10 @@ import java.util.List;
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
 
-import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link cV.Contacts} object.
@@ -42,72 +45,40 @@ public class ContactsItemProvider extends SectionItemProvider {
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addAddressPropertyDescriptor(object);
-			addPhonePropertyDescriptor(object);
-			addEmailPropertyDescriptor(object);
-			addLinksPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Address feature.
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addAddressPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Contacts_address_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Contacts_address_feature",
-								"_UI_Contacts_type"),
-						CVPackage.Literals.CONTACTS__ADDRESS, true, false, true, null, null, null));
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(CVPackage.Literals.CONTACTS__PHONE);
+			childrenFeatures.add(CVPackage.Literals.CONTACTS__EMAIL);
+			childrenFeatures.add(CVPackage.Literals.CONTACTS__LINKS);
+		}
+		return childrenFeatures;
 	}
 
 	/**
-	 * This adds a property descriptor for the Phone feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addPhonePropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Contacts_phone_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Contacts_phone_feature",
-								"_UI_Contacts_type"),
-						CVPackage.Literals.CONTACTS__PHONE, true, false, true, null, null, null));
-	}
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
 
-	/**
-	 * This adds a property descriptor for the Email feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addEmailPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Contacts_email_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Contacts_email_feature",
-								"_UI_Contacts_type"),
-						CVPackage.Literals.CONTACTS__EMAIL, true, false, true, null, null, null));
-	}
-
-	/**
-	 * This adds a property descriptor for the Links feature.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected void addLinksPropertyDescriptor(Object object) {
-		itemPropertyDescriptors
-				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_Contacts_links_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_Contacts_links_feature",
-								"_UI_Contacts_type"),
-						CVPackage.Literals.CONTACTS__LINKS, true, false, true, null, null, null));
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -154,6 +125,14 @@ public class ContactsItemProvider extends SectionItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(Contacts.class)) {
+		case CVPackage.CONTACTS__PHONE:
+		case CVPackage.CONTACTS__EMAIL:
+		case CVPackage.CONTACTS__LINKS:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -167,6 +146,36 @@ public class ContactsItemProvider extends SectionItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors
+				.add(createChildParameter(CVPackage.Literals.CONTACTS__PHONE, CVFactory.eINSTANCE.createText()));
+
+		newChildDescriptors
+				.add(createChildParameter(CVPackage.Literals.CONTACTS__EMAIL, CVFactory.eINSTANCE.createText()));
+
+		newChildDescriptors
+				.add(createChildParameter(CVPackage.Literals.CONTACTS__LINKS, CVFactory.eINSTANCE.createURL()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify = childFeature == CVPackage.Literals.CONTACTS__PHONE
+				|| childFeature == CVPackage.Literals.CONTACTS__EMAIL;
+
+		if (qualify) {
+			return getString("_UI_CreateChild_text2",
+					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

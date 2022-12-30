@@ -4,7 +4,9 @@ package cV.impl;
 
 import cV.CVPackage;
 import cV.Date;
+
 import org.eclipse.emf.common.notify.Notification;
+
 import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
@@ -32,7 +34,7 @@ public class DateImpl extends ItemImpl implements Date {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final java.util.Date START_DATE_EDEFAULT = null;
+	protected static final String START_DATE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getStart_date() <em>Start date</em>}' attribute.
@@ -42,7 +44,7 @@ public class DateImpl extends ItemImpl implements Date {
 	 * @generated
 	 * @ordered
 	 */
-	protected java.util.Date start_date = START_DATE_EDEFAULT;
+	protected String start_date = START_DATE_EDEFAULT;
 
 	/**
 	 * The default value of the '{@link #getEnding_date() <em>Ending date</em>}' attribute.
@@ -52,7 +54,7 @@ public class DateImpl extends ItemImpl implements Date {
 	 * @generated
 	 * @ordered
 	 */
-	protected static final java.util.Date ENDING_DATE_EDEFAULT = null;
+	protected static final String ENDING_DATE_EDEFAULT = null;
 
 	/**
 	 * The cached value of the '{@link #getEnding_date() <em>Ending date</em>}' attribute.
@@ -62,7 +64,7 @@ public class DateImpl extends ItemImpl implements Date {
 	 * @generated
 	 * @ordered
 	 */
-	protected java.util.Date ending_date = ENDING_DATE_EDEFAULT;
+	protected String ending_date = ENDING_DATE_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -88,7 +90,7 @@ public class DateImpl extends ItemImpl implements Date {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public java.util.Date getStart_date() {
+	public String getStart_date() {
 		return start_date;
 	}
 
@@ -97,8 +99,8 @@ public class DateImpl extends ItemImpl implements Date {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setStart_date(java.util.Date newStart_date) {
-		java.util.Date oldStart_date = start_date;
+	public void setStart_date(String newStart_date) {
+		String oldStart_date = start_date;
 		start_date = newStart_date;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.DATE__START_DATE, oldStart_date,
@@ -110,7 +112,7 @@ public class DateImpl extends ItemImpl implements Date {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public java.util.Date getEnding_date() {
+	public String getEnding_date() {
 		return ending_date;
 	}
 
@@ -119,8 +121,8 @@ public class DateImpl extends ItemImpl implements Date {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setEnding_date(java.util.Date newEnding_date) {
-		java.util.Date oldEnding_date = ending_date;
+	public void setEnding_date(String newEnding_date) {
+		String oldEnding_date = ending_date;
 		ending_date = newEnding_date;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.DATE__ENDING_DATE, oldEnding_date,
@@ -152,10 +154,10 @@ public class DateImpl extends ItemImpl implements Date {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 		case CVPackage.DATE__START_DATE:
-			setStart_date((java.util.Date) newValue);
+			setStart_date((String) newValue);
 			return;
 		case CVPackage.DATE__ENDING_DATE:
-			setEnding_date((java.util.Date) newValue);
+			setEnding_date((String) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);

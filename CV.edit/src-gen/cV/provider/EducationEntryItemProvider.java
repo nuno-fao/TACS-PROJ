@@ -2,6 +2,7 @@
  */
 package cV.provider;
 
+import cV.CVFactory;
 import cV.CVPackage;
 import cV.EducationEntry;
 
@@ -10,6 +11,8 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EStructuralFeature;
 
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
@@ -46,7 +49,7 @@ public class EducationEntryItemProvider extends ItemItemProvider {
 
 			addLevelPropertyDescriptor(object);
 			addSchoolPropertyDescriptor(object);
-			addDatePropertyDescriptor(object);
+			addTitlePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -84,18 +87,49 @@ public class EducationEntryItemProvider extends ItemItemProvider {
 	}
 
 	/**
-	 * This adds a property descriptor for the Date feature.
+	 * This adds a property descriptor for the Title feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addDatePropertyDescriptor(Object object) {
+	protected void addTitlePropertyDescriptor(Object object) {
 		itemPropertyDescriptors
 				.add(createItemPropertyDescriptor(((ComposeableAdapterFactory) adapterFactory).getRootAdapterFactory(),
-						getResourceLocator(), getString("_UI_EducationEntry_date_feature"),
-						getString("_UI_PropertyDescriptor_description", "_UI_EducationEntry_date_feature",
+						getResourceLocator(), getString("_UI_EducationEntry_title_feature"),
+						getString("_UI_PropertyDescriptor_description", "_UI_EducationEntry_title_feature",
 								"_UI_EducationEntry_type"),
-						CVPackage.Literals.EDUCATION_ENTRY__DATE, true, false, true, null, null, null));
+						CVPackage.Literals.EDUCATION_ENTRY__TITLE, true, false, false,
+						ItemPropertyDescriptor.GENERIC_VALUE_IMAGE, null, null));
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(CVPackage.Literals.EDUCATION_ENTRY__DATE);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -146,7 +180,11 @@ public class EducationEntryItemProvider extends ItemItemProvider {
 		switch (notification.getFeatureID(EducationEntry.class)) {
 		case CVPackage.EDUCATION_ENTRY__LEVEL:
 		case CVPackage.EDUCATION_ENTRY__SCHOOL:
+		case CVPackage.EDUCATION_ENTRY__TITLE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
+			return;
+		case CVPackage.EDUCATION_ENTRY__DATE:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 			return;
 		}
 		super.notifyChanged(notification);
@@ -162,6 +200,9 @@ public class EducationEntryItemProvider extends ItemItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors
+				.add(createChildParameter(CVPackage.Literals.EDUCATION_ENTRY__DATE, CVFactory.eINSTANCE.createDate()));
 	}
 
 }

@@ -5,33 +5,27 @@ package cV.impl;
 import cV.BibliographicEntry;
 import cV.CVPackage;
 import cV.CVTables;
+import cV.URL;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Map;
-
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
 import org.eclipse.ocl.pivot.evaluation.Executor;
-
 import org.eclipse.ocl.pivot.ids.TypeId;
-
 import org.eclipse.ocl.pivot.library.oclany.OclComparableGreaterThanOperation;
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
-
 import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
 import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
-
 import org.eclipse.ocl.pivot.utilities.PivotUtil;
 import org.eclipse.ocl.pivot.utilities.ValueUtil;
-
 import org.eclipse.ocl.pivot.values.IntegerValue;
 
 /**
@@ -45,6 +39,8 @@ import org.eclipse.ocl.pivot.values.IntegerValue;
  *   <li>{@link cV.impl.BibliographicEntryImpl#getAuthor <em>Author</em>}</li>
  *   <li>{@link cV.impl.BibliographicEntryImpl#getYear <em>Year</em>}</li>
  *   <li>{@link cV.impl.BibliographicEntryImpl#getTitle <em>Title</em>}</li>
+ *   <li>{@link cV.impl.BibliographicEntryImpl#getDescription <em>Description</em>}</li>
+ *   <li>{@link cV.impl.BibliographicEntryImpl#getUrl <em>Url</em>}</li>
  * </ul>
  *
  * @generated
@@ -109,6 +105,36 @@ public class BibliographicEntryImpl extends ItemImpl implements BibliographicEnt
 	 * @ordered
 	 */
 	protected String title = TITLE_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String DESCRIPTION_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getDescription() <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getDescription()
+	 * @generated
+	 * @ordered
+	 */
+	protected String description = DESCRIPTION_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getUrl() <em>Url</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getUrl()
+	 * @generated
+	 * @ordered
+	 */
+	protected URL url;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -199,6 +225,77 @@ public class BibliographicEntryImpl extends ItemImpl implements BibliographicEnt
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getDescription() {
+		return description;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setDescription(String newDescription) {
+		String oldDescription = description;
+		description = newDescription;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.BIBLIOGRAPHIC_ENTRY__DESCRIPTION,
+					oldDescription, description));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public URL getUrl() {
+		return url;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetUrl(URL newUrl, NotificationChain msgs) {
+		URL oldUrl = url;
+		url = newUrl;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+					CVPackage.BIBLIOGRAPHIC_ENTRY__URL, oldUrl, newUrl);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setUrl(URL newUrl) {
+		if (newUrl != url) {
+			NotificationChain msgs = null;
+			if (url != null)
+				msgs = ((InternalEObject) url).eInverseRemove(this,
+						EOPPOSITE_FEATURE_BASE - CVPackage.BIBLIOGRAPHIC_ENTRY__URL, null, msgs);
+			if (newUrl != null)
+				msgs = ((InternalEObject) newUrl).eInverseAdd(this,
+						EOPPOSITE_FEATURE_BASE - CVPackage.BIBLIOGRAPHIC_ENTRY__URL, null, msgs);
+			msgs = basicSetUrl(newUrl, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.BIBLIOGRAPHIC_ENTRY__URL, newUrl, newUrl));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public boolean check_year(final DiagnosticChain diagnostics, final Map<Object, Object> context) {
 		final String constraintName = "BibliographicEntry::check_year";
 		try {
@@ -246,6 +343,20 @@ public class BibliographicEntryImpl extends ItemImpl implements BibliographicEnt
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case CVPackage.BIBLIOGRAPHIC_ENTRY__URL:
+			return basicSetUrl(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case CVPackage.BIBLIOGRAPHIC_ENTRY__AUTHOR:
@@ -254,6 +365,10 @@ public class BibliographicEntryImpl extends ItemImpl implements BibliographicEnt
 			return getYear();
 		case CVPackage.BIBLIOGRAPHIC_ENTRY__TITLE:
 			return getTitle();
+		case CVPackage.BIBLIOGRAPHIC_ENTRY__DESCRIPTION:
+			return getDescription();
+		case CVPackage.BIBLIOGRAPHIC_ENTRY__URL:
+			return getUrl();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -274,6 +389,12 @@ public class BibliographicEntryImpl extends ItemImpl implements BibliographicEnt
 			return;
 		case CVPackage.BIBLIOGRAPHIC_ENTRY__TITLE:
 			setTitle((String) newValue);
+			return;
+		case CVPackage.BIBLIOGRAPHIC_ENTRY__DESCRIPTION:
+			setDescription((String) newValue);
+			return;
+		case CVPackage.BIBLIOGRAPHIC_ENTRY__URL:
+			setUrl((URL) newValue);
 			return;
 		}
 		super.eSet(featureID, newValue);
@@ -296,6 +417,12 @@ public class BibliographicEntryImpl extends ItemImpl implements BibliographicEnt
 		case CVPackage.BIBLIOGRAPHIC_ENTRY__TITLE:
 			setTitle(TITLE_EDEFAULT);
 			return;
+		case CVPackage.BIBLIOGRAPHIC_ENTRY__DESCRIPTION:
+			setDescription(DESCRIPTION_EDEFAULT);
+			return;
+		case CVPackage.BIBLIOGRAPHIC_ENTRY__URL:
+			setUrl((URL) null);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -314,6 +441,10 @@ public class BibliographicEntryImpl extends ItemImpl implements BibliographicEnt
 			return year != YEAR_EDEFAULT;
 		case CVPackage.BIBLIOGRAPHIC_ENTRY__TITLE:
 			return TITLE_EDEFAULT == null ? title != null : !TITLE_EDEFAULT.equals(title);
+		case CVPackage.BIBLIOGRAPHIC_ENTRY__DESCRIPTION:
+			return DESCRIPTION_EDEFAULT == null ? description != null : !DESCRIPTION_EDEFAULT.equals(description);
+		case CVPackage.BIBLIOGRAPHIC_ENTRY__URL:
+			return url != null;
 		}
 		return super.eIsSet(featureID);
 	}
@@ -350,6 +481,8 @@ public class BibliographicEntryImpl extends ItemImpl implements BibliographicEnt
 		result.append(year);
 		result.append(", title: ");
 		result.append(title);
+		result.append(", description: ");
+		result.append(description);
 		result.append(')');
 		return result.toString();
 	}

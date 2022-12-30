@@ -67,22 +67,22 @@ public interface JobEntry extends Item {
 	void setEmployer(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Date</b></em>' reference.
+	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Date</em>' reference.
+	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(Date)
 	 * @see cV.CVPackage#getJobEntry_Date()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Date getDate();
 
 	/**
-	 * Sets the value of the '{@link cV.JobEntry#getDate <em>Date</em>}' reference.
+	 * Sets the value of the '{@link cV.JobEntry#getDate <em>Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date</em>' reference.
+	 * @param value the new value of the '<em>Date</em>' containment reference.
 	 * @see #getDate()
 	 * @generated
 	 */

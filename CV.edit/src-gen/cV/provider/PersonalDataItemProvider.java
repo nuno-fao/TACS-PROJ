@@ -2,6 +2,8 @@
  */
 package cV.provider;
 
+import cV.CVFactory;
+import cV.CVPackage;
 import cV.PersonalData;
 
 import java.util.Collection;
@@ -9,7 +11,11 @@ import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
+
+import org.eclipse.emf.ecore.EStructuralFeature;
+
 import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
+import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
  * This is the item provider adapter for a {@link cV.PersonalData} object.
@@ -41,6 +47,40 @@ public class PersonalDataItemProvider extends SectionItemProvider {
 
 		}
 		return itemPropertyDescriptors;
+	}
+
+	/**
+	 * This specifies how to implement {@link #getChildren} and is used to deduce an appropriate feature for an
+	 * {@link org.eclipse.emf.edit.command.AddCommand}, {@link org.eclipse.emf.edit.command.RemoveCommand} or
+	 * {@link org.eclipse.emf.edit.command.MoveCommand} in {@link #createCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
+		if (childrenFeatures == null) {
+			super.getChildrenFeatures(object);
+			childrenFeatures.add(CVPackage.Literals.PERSONAL_DATA__NAME);
+			childrenFeatures.add(CVPackage.Literals.PERSONAL_DATA__PHOTO);
+			childrenFeatures.add(CVPackage.Literals.PERSONAL_DATA__BIRTHDATE);
+			childrenFeatures.add(CVPackage.Literals.PERSONAL_DATA__ABOUT_ME);
+			childrenFeatures.add(CVPackage.Literals.PERSONAL_DATA__ADDRESS);
+		}
+		return childrenFeatures;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	protected EStructuralFeature getChildFeature(Object object, Object child) {
+		// Check the type of the specified child object and return the proper feature to use for
+		// adding (see {@link AddCommand}) it as a child.
+
+		return super.getChildFeature(object, child);
 	}
 
 	/**
@@ -87,6 +127,16 @@ public class PersonalDataItemProvider extends SectionItemProvider {
 	@Override
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
+
+		switch (notification.getFeatureID(PersonalData.class)) {
+		case CVPackage.PERSONAL_DATA__NAME:
+		case CVPackage.PERSONAL_DATA__PHOTO:
+		case CVPackage.PERSONAL_DATA__BIRTHDATE:
+		case CVPackage.PERSONAL_DATA__ABOUT_ME:
+		case CVPackage.PERSONAL_DATA__ADDRESS:
+			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
+			return;
+		}
 		super.notifyChanged(notification);
 	}
 
@@ -100,6 +150,43 @@ public class PersonalDataItemProvider extends SectionItemProvider {
 	@Override
 	protected void collectNewChildDescriptors(Collection<Object> newChildDescriptors, Object object) {
 		super.collectNewChildDescriptors(newChildDescriptors, object);
+
+		newChildDescriptors
+				.add(createChildParameter(CVPackage.Literals.PERSONAL_DATA__NAME, CVFactory.eINSTANCE.createText()));
+
+		newChildDescriptors
+				.add(createChildParameter(CVPackage.Literals.PERSONAL_DATA__PHOTO, CVFactory.eINSTANCE.createImage()));
+
+		newChildDescriptors.add(
+				createChildParameter(CVPackage.Literals.PERSONAL_DATA__BIRTHDATE, CVFactory.eINSTANCE.createDate()));
+
+		newChildDescriptors.add(
+				createChildParameter(CVPackage.Literals.PERSONAL_DATA__ABOUT_ME, CVFactory.eINSTANCE.createText()));
+
+		newChildDescriptors
+				.add(createChildParameter(CVPackage.Literals.PERSONAL_DATA__ADDRESS, CVFactory.eINSTANCE.createText()));
+	}
+
+	/**
+	 * This returns the label text for {@link org.eclipse.emf.edit.command.CreateChildCommand}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String getCreateChildText(Object owner, Object feature, Object child, Collection<?> selection) {
+		Object childFeature = feature;
+		Object childObject = child;
+
+		boolean qualify = childFeature == CVPackage.Literals.PERSONAL_DATA__NAME
+				|| childFeature == CVPackage.Literals.PERSONAL_DATA__ABOUT_ME
+				|| childFeature == CVPackage.Literals.PERSONAL_DATA__ADDRESS;
+
+		if (qualify) {
+			return getString("_UI_CreateChild_text2",
+					new Object[] { getTypeText(childObject), getFeatureText(childFeature), getTypeText(owner) });
+		}
+		return super.getCreateChildText(owner, feature, child, selection);
 	}
 
 }

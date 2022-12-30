@@ -10,12 +10,11 @@ import cV.Table;
 import cV.TableRow;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
+
 import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -31,24 +30,16 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.ocl.pivot.evaluation.Executor;
-
 import org.eclipse.ocl.pivot.ids.IdResolver;
 import org.eclipse.ocl.pivot.ids.TypeId;
-
 import org.eclipse.ocl.pivot.library.collection.CollectionSizeOperation;
-
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
-
 import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
 import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
-
 import org.eclipse.ocl.pivot.messages.PivotMessages;
-
 import org.eclipse.ocl.pivot.utilities.PivotUtil;
 import org.eclipse.ocl.pivot.utilities.ValueUtil;
-
 import org.eclipse.ocl.pivot.values.IntegerValue;
 import org.eclipse.ocl.pivot.values.InvalidValueException;
 import org.eclipse.ocl.pivot.values.OrderedSetValue;
@@ -80,7 +71,7 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 	protected EList<String> header;
 
 	/**
-	 * The cached value of the '{@link #getField() <em>Field</em>}' reference.
+	 * The cached value of the '{@link #getField() <em>Field</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getField()
@@ -136,14 +127,6 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 	 * @generated
 	 */
 	public Field getField() {
-		if (field != null && field.eIsProxy()) {
-			InternalEObject oldField = (InternalEObject) field;
-			field = (Field) eResolveProxy(oldField);
-			if (field != oldField) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CVPackage.TABLE__FIELD, oldField, field));
-			}
-		}
 		return field;
 	}
 
@@ -152,8 +135,18 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Field basicGetField() {
-		return field;
+	public NotificationChain basicSetField(Field newField, NotificationChain msgs) {
+		Field oldField = field;
+		field = newField;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CVPackage.TABLE__FIELD,
+					oldField, newField);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -162,10 +155,19 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 	 * @generated
 	 */
 	public void setField(Field newField) {
-		Field oldField = field;
-		field = newField;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.TABLE__FIELD, oldField, field));
+		if (newField != field) {
+			NotificationChain msgs = null;
+			if (field != null)
+				msgs = ((InternalEObject) field).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CVPackage.TABLE__FIELD,
+						null, msgs);
+			if (newField != null)
+				msgs = ((InternalEObject) newField).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CVPackage.TABLE__FIELD,
+						null, msgs);
+			msgs = basicSetField(newField, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.TABLE__FIELD, newField, newField));
 	}
 
 	/**
@@ -293,6 +295,8 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+		case CVPackage.TABLE__FIELD:
+			return basicSetField(null, msgs);
 		case CVPackage.TABLE__ROWS:
 			return ((InternalEList<?>) getRows()).basicRemove(otherEnd, msgs);
 		}
@@ -310,9 +314,7 @@ public class TableImpl extends MinimalEObjectImpl.Container implements Table {
 		case CVPackage.TABLE__HEADER:
 			return getHeader();
 		case CVPackage.TABLE__FIELD:
-			if (resolve)
-				return getField();
-			return basicGetField();
+			return getField();
 		case CVPackage.TABLE__ROWS:
 			return getRows();
 		}

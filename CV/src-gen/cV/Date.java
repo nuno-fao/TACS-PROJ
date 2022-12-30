@@ -25,12 +25,12 @@ public interface Date extends Item {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Start date</em>' attribute.
-	 * @see #setStart_date(java.util.Date)
+	 * @see #setStart_date(String)
 	 * @see cV.CVPackage#getDate_Start_date()
 	 * @model
 	 * @generated
 	 */
-	java.util.Date getStart_date();
+	String getStart_date();
 
 	/**
 	 * Sets the value of the '{@link cV.Date#getStart_date <em>Start date</em>}' attribute.
@@ -40,19 +40,19 @@ public interface Date extends Item {
 	 * @see #getStart_date()
 	 * @generated
 	 */
-	void setStart_date(java.util.Date value);
+	void setStart_date(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Ending date</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Ending date</em>' attribute.
-	 * @see #setEnding_date(java.util.Date)
+	 * @see #setEnding_date(String)
 	 * @see cV.CVPackage#getDate_Ending_date()
 	 * @model
 	 * @generated
 	 */
-	java.util.Date getEnding_date();
+	String getEnding_date();
 
 	/**
 	 * Sets the value of the '{@link cV.Date#getEnding_date <em>Ending date</em>}' attribute.
@@ -62,6 +62,6 @@ public interface Date extends Item {
 	 * @see #getEnding_date()
 	 * @generated
 	 */
-	void setEnding_date(java.util.Date value);
+	void setEnding_date(String value);
 
 } // Date

@@ -3,9 +3,9 @@
 package cV.provider;
 
 import cV.CVPackage;
+import cV.Date;
 
 import java.util.Collection;
-import java.util.Date;
 import java.util.List;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
@@ -110,8 +110,7 @@ public class DateItemProvider extends ItemItemProvider {
 	 */
 	@Override
 	public String getText(Object object) {
-		Date labelValue = ((cV.Date) object).getStart_date();
-		String label = labelValue == null ? null : labelValue.toString();
+		String label = ((Date) object).getStart_date();
 		return label == null || label.length() == 0 ? getString("_UI_Date_type")
 				: getString("_UI_Date_type") + " " + label;
 	}
@@ -127,7 +126,7 @@ public class DateItemProvider extends ItemItemProvider {
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(cV.Date.class)) {
+		switch (notification.getFeatureID(Date.class)) {
 		case CVPackage.DATE__START_DATE:
 		case CVPackage.DATE__ENDING_DATE:
 			fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));

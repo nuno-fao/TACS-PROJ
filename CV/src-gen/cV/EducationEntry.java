@@ -14,6 +14,7 @@ package cV;
  *   <li>{@link cV.EducationEntry#getLevel <em>Level</em>}</li>
  *   <li>{@link cV.EducationEntry#getSchool <em>School</em>}</li>
  *   <li>{@link cV.EducationEntry#getDate <em>Date</em>}</li>
+ *   <li>{@link cV.EducationEntry#getTitle <em>Title</em>}</li>
  * </ul>
  *
  * @see cV.CVPackage#getEducationEntry()
@@ -66,25 +67,47 @@ public interface EducationEntry extends Item {
 	void setSchool(String value);
 
 	/**
-	 * Returns the value of the '<em><b>Date</b></em>' reference.
+	 * Returns the value of the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Date</em>' reference.
+	 * @return the value of the '<em>Date</em>' containment reference.
 	 * @see #setDate(Date)
 	 * @see cV.CVPackage#getEducationEntry_Date()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Date getDate();
 
 	/**
-	 * Sets the value of the '{@link cV.EducationEntry#getDate <em>Date</em>}' reference.
+	 * Sets the value of the '{@link cV.EducationEntry#getDate <em>Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Date</em>' reference.
+	 * @param value the new value of the '<em>Date</em>' containment reference.
 	 * @see #getDate()
 	 * @generated
 	 */
 	void setDate(Date value);
+
+	/**
+	 * Returns the value of the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Title</em>' attribute.
+	 * @see #setTitle(String)
+	 * @see cV.CVPackage#getEducationEntry_Title()
+	 * @model
+	 * @generated
+	 */
+	String getTitle();
+
+	/**
+	 * Sets the value of the '{@link cV.EducationEntry#getTitle <em>Title</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Title</em>' attribute.
+	 * @see #getTitle()
+	 * @generated
+	 */
+	void setTitle(String value);
 
 } // EducationEntry

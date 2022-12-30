@@ -8,10 +8,10 @@ import cV.CVTables;
 import cV.Section;
 
 import java.lang.reflect.InvocationTargetException;
-
 import java.util.Collection;
-import java.util.Map;
 
+import java.util.Map;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -20,28 +20,21 @@ import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
-
 import org.eclipse.ocl.pivot.evaluation.Executor;
-
 import org.eclipse.ocl.pivot.ids.IdResolver;
 import org.eclipse.ocl.pivot.ids.TypeId;
-
 import org.eclipse.ocl.pivot.library.classifier.ClassifierAllInstancesOperation;
-
 import org.eclipse.ocl.pivot.library.collection.CollectionSizeOperation;
-
 import org.eclipse.ocl.pivot.library.oclany.OclComparableLessThanEqualOperation;
-
 import org.eclipse.ocl.pivot.library.string.CGStringGetSeverityOperation;
 import org.eclipse.ocl.pivot.library.string.CGStringLogDiagnosticOperation;
-
 import org.eclipse.ocl.pivot.utilities.PivotUtil;
 import org.eclipse.ocl.pivot.utilities.ValueUtil;
-
 import org.eclipse.ocl.pivot.values.IntegerValue;
 import org.eclipse.ocl.pivot.values.SetValue;
 
@@ -54,6 +47,7 @@ import org.eclipse.ocl.pivot.values.SetValue;
  * </p>
  * <ul>
  *   <li>{@link cV.impl.CVImpl#getSections <em>Sections</em>}</li>
+ *   <li>{@link cV.impl.CVImpl#getName <em>Name</em>}</li>
  * </ul>
  *
  * @generated
@@ -68,6 +62,26 @@ public class CVImpl extends MinimalEObjectImpl.Container implements CV {
 	 * @ordered
 	 */
 	protected EList<Section> sections;
+
+	/**
+	 * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String name = NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -98,6 +112,27 @@ public class CVImpl extends MinimalEObjectImpl.Container implements CV {
 			sections = new EObjectContainmentEList<Section>(Section.class, this, CVPackage.CV__SECTIONS);
 		}
 		return sections;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getName() {
+		return name;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setName(String newName) {
+		String oldName = name;
+		name = newName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.CV__NAME, oldName, name));
 	}
 
 	/**
@@ -324,6 +359,8 @@ public class CVImpl extends MinimalEObjectImpl.Container implements CV {
 		switch (featureID) {
 		case CVPackage.CV__SECTIONS:
 			return getSections();
+		case CVPackage.CV__NAME:
+			return getName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -341,6 +378,9 @@ public class CVImpl extends MinimalEObjectImpl.Container implements CV {
 			getSections().clear();
 			getSections().addAll((Collection<? extends Section>) newValue);
 			return;
+		case CVPackage.CV__NAME:
+			setName((String) newValue);
+			return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -356,6 +396,9 @@ public class CVImpl extends MinimalEObjectImpl.Container implements CV {
 		case CVPackage.CV__SECTIONS:
 			getSections().clear();
 			return;
+		case CVPackage.CV__NAME:
+			setName(NAME_EDEFAULT);
+			return;
 		}
 		super.eUnset(featureID);
 	}
@@ -370,6 +413,8 @@ public class CVImpl extends MinimalEObjectImpl.Container implements CV {
 		switch (featureID) {
 		case CVPackage.CV__SECTIONS:
 			return sections != null && !sections.isEmpty();
+		case CVPackage.CV__NAME:
+			return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -397,6 +442,23 @@ public class CVImpl extends MinimalEObjectImpl.Container implements CV {
 					(Map<Object, Object>) arguments.get(1));
 		}
 		return super.eInvoke(operationID, arguments);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public String toString() {
+		if (eIsProxy())
+			return super.toString();
+
+		StringBuilder result = new StringBuilder(super.toString());
+		result.append(" (name: ");
+		result.append(name);
+		result.append(')');
+		return result.toString();
 	}
 
 } //CVImpl

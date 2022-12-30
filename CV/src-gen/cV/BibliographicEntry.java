@@ -3,7 +3,6 @@
 package cV;
 
 import java.util.Map;
-
 import org.eclipse.emf.common.util.DiagnosticChain;
 
 /**
@@ -18,6 +17,8 @@ import org.eclipse.emf.common.util.DiagnosticChain;
  *   <li>{@link cV.BibliographicEntry#getAuthor <em>Author</em>}</li>
  *   <li>{@link cV.BibliographicEntry#getYear <em>Year</em>}</li>
  *   <li>{@link cV.BibliographicEntry#getTitle <em>Title</em>}</li>
+ *   <li>{@link cV.BibliographicEntry#getDescription <em>Description</em>}</li>
+ *   <li>{@link cV.BibliographicEntry#getUrl <em>Url</em>}</li>
  * </ul>
  *
  * @see cV.CVPackage#getBibliographicEntry()
@@ -90,6 +91,50 @@ public interface BibliographicEntry extends Item {
 	 * @generated
 	 */
 	void setTitle(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Description</em>' attribute.
+	 * @see #setDescription(String)
+	 * @see cV.CVPackage#getBibliographicEntry_Description()
+	 * @model
+	 * @generated
+	 */
+	String getDescription();
+
+	/**
+	 * Sets the value of the '{@link cV.BibliographicEntry#getDescription <em>Description</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Description</em>' attribute.
+	 * @see #getDescription()
+	 * @generated
+	 */
+	void setDescription(String value);
+
+	/**
+	 * Returns the value of the '<em><b>Url</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Url</em>' containment reference.
+	 * @see #setUrl(URL)
+	 * @see cV.CVPackage#getBibliographicEntry_Url()
+	 * @model containment="true" required="true"
+	 * @generated
+	 */
+	URL getUrl();
+
+	/**
+	 * Sets the value of the '{@link cV.BibliographicEntry#getUrl <em>Url</em>}' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Url</em>' containment reference.
+	 * @see #getUrl()
+	 * @generated
+	 */
+	void setUrl(URL value);
 
 	/**
 	 * <!-- begin-user-doc -->

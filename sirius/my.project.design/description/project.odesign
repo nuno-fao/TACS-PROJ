@@ -1,0 +1,911 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="project" version="12.0.0.2017041100">
+  <ownedViewpoints name="CV Viewpoint" modelFileExtension="cv">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="CV diagram" domainClass="cV::CV" enablePopupBars="true">
+      <metamodel href="http://www.example.org/cV#/"/>
+      <defaultLayer name="Default">
+        <containerMappings name="PersonalDataContainer" domainClass="cV::PersonalData">
+          <subNodeMappings name="NameNode" semanticCandidatesExpression="feature:name" domainClass="cV::Text">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="AddressNode" semanticCandidatesExpression="feature:address" domainClass="cV::Text">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Address: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="AboutMeNode" semanticCandidatesExpression="feature:about_me" domainClass="cV::Text">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'About Me: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="BirthDateNode" semanticCandidatesExpression="feature:birthdate" domainClass="cV::Date">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Birthdate: ' + self.start_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="PhotoNode" semanticCandidatesExpression="feature:photo" domainClass="cV::Image">
+            <style xsi:type="style:BundledImageDescription" labelSize="12" labelExpression="aql:'Photo (' + self.width + ',' + self.height + '): ' + self.value" labelAlignment="LEFT" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+            </style>
+          </subNodeMappings>
+          <subContainerMappings name="FieldContainer" semanticCandidatesExpression="feature:fields" domainClass="cV::Field">
+            <subNodeMappings name="TextNode" semanticCandidatesExpression="feature:items" domainClass="cV::Text">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:items" domainClass="cV::Date">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="UrlNode" semanticCandidatesExpression="feature:items" domainClass="cV::URL">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.name + '\nURL: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="ImageNode" semanticCandidatesExpression="feature:items" domainClass="cV::Image">
+              <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql:'Image (' + self.width + ',' + self.height + '): ' + self.value" labelAlignment="LEFT" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="SkillEntryNode" semanticCandidatesExpression="feature:items" domainClass="cV::SkillEntry">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Title: ' + self.title + '\nSkill Value: ' + self.skillValue" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              </style>
+            </subNodeMappings>
+            <subContainerMappings name="BibliographicEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::BibliographicEntry">
+              <subNodeMappings name="UrlNode" semanticCandidatesExpression="feature:url" domainClass="cV::URL">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.name + '\nURL: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nAuthor: ' + self.author + '\nYear: ' + self.year + '\nDescription: ' + self.description" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="JobEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::JobEntry">
+              <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nEmployer: ' + self.employer + '\nDescription: ' + self.description" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="EducationEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::EducationEntry">
+              <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nLevel: ' + self.level + '\nSchool: ' + self.school" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.header" roundedCorner="true">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="ContactsContainer" domainClass="cV::Contacts">
+          <subNodeMappings name="PhoneNode" semanticCandidatesExpression="feature:phone" domainClass="cV::Text">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Phone: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="EmailNode" semanticCandidatesExpression="feature:email" domainClass="cV::Text">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Email: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subNodeMappings>
+          <subNodeMappings name="UrlNode" semanticCandidatesExpression="feature:links" domainClass="cV::URL">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.name + '\nURL: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+            </style>
+          </subNodeMappings>
+          <subContainerMappings name="FieldContainer" semanticCandidatesExpression="feature:fields" domainClass="cV::Field">
+            <subNodeMappings name="TextNode" semanticCandidatesExpression="feature:items" domainClass="cV::Text">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:items" domainClass="cV::Date">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="UrlNode" semanticCandidatesExpression="feature:items" domainClass="cV::URL">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.name + '\nURL: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="ImageNode" semanticCandidatesExpression="feature:items" domainClass="cV::Image">
+              <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql:'Image (' + self.width + ',' + self.height + '): ' + self.value" labelAlignment="LEFT" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="SkillEntryNode" semanticCandidatesExpression="feature:items" domainClass="cV::SkillEntry">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Title: ' + self.title + '\nSkill Value: ' + self.skillValue" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              </style>
+            </subNodeMappings>
+            <subContainerMappings name="BibliographicEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::BibliographicEntry">
+              <subNodeMappings name="UrlNode" semanticCandidatesExpression="feature:url" domainClass="cV::URL">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.name + '\nURL: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nAuthor: ' + self.author + '\nYear: ' + self.year + '\nDescription: ' + self.description" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="JobEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::JobEntry">
+              <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nEmployer: ' + self.employer + '\nDescription: ' + self.description" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="EducationEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::EducationEntry">
+              <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nLevel: ' + self.level + '\nSchool: ' + self.school" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.header" roundedCorner="true">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='orange']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="EducationContainer" domainClass="cV::Education">
+          <subContainerMappings name="EducationEntryContainer" semanticCandidatesExpression="feature:educationEntries" domainClass="cV::EducationEntry">
+            <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nLevel: ' + self.level + '\nSchool: ' + self.school" labelAlignment="LEFT" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="FieldContainer" semanticCandidatesExpression="feature:fields" domainClass="cV::Field">
+            <subNodeMappings name="TextNode" semanticCandidatesExpression="feature:items" domainClass="cV::Text">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:items" domainClass="cV::Date">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="UrlNode" semanticCandidatesExpression="feature:items" domainClass="cV::URL">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.name + '\nURL: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="ImageNode" semanticCandidatesExpression="feature:items" domainClass="cV::Image">
+              <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql:'Image (' + self.width + ',' + self.height + '): ' + self.value" labelAlignment="LEFT" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="SkillEntryNode" semanticCandidatesExpression="feature:items" domainClass="cV::SkillEntry">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Title: ' + self.title + '\nSkill Value: ' + self.skillValue" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              </style>
+            </subNodeMappings>
+            <subContainerMappings name="BibliographicEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::BibliographicEntry">
+              <subNodeMappings name="UrlNode" semanticCandidatesExpression="feature:url" domainClass="cV::URL">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.name + '\nURL: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nAuthor: ' + self.author + '\nYear: ' + self.year + '\nDescription: ' + self.description" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="JobEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::JobEntry">
+              <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nEmployer: ' + self.employer + '\nDescription: ' + self.description" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="EducationEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::EducationEntry">
+              <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nLevel: ' + self.level + '\nSchool: ' + self.school" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.header" roundedCorner="true">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="WorkExperienceContainer" domainClass="cV::WorkExperience">
+          <subContainerMappings name="JobEntryContainer" semanticCandidatesExpression="feature:jobEntries" domainClass="cV::JobEntry">
+            <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nEmployer: ' + self.employer + '\nDescription: ' + self.description" labelAlignment="LEFT" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+            </style>
+          </subContainerMappings>
+          <subContainerMappings name="FieldContainer" semanticCandidatesExpression="feature:fields" domainClass="cV::Field">
+            <subNodeMappings name="TextNode" semanticCandidatesExpression="feature:items" domainClass="cV::Text">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:items" domainClass="cV::Date">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="UrlNode" semanticCandidatesExpression="feature:items" domainClass="cV::URL">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.name + '\nURL: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="ImageNode" semanticCandidatesExpression="feature:items" domainClass="cV::Image">
+              <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql:'Image (' + self.width + ',' + self.height + '): ' + self.value" labelAlignment="LEFT" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="SkillEntryNode" semanticCandidatesExpression="feature:items" domainClass="cV::SkillEntry">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Title: ' + self.title + '\nSkill Value: ' + self.skillValue" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              </style>
+            </subNodeMappings>
+            <subContainerMappings name="BibliographicEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::BibliographicEntry">
+              <subNodeMappings name="UrlNode" semanticCandidatesExpression="feature:url" domainClass="cV::URL">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.name + '\nURL: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nAuthor: ' + self.author + '\nYear: ' + self.year + '\nDescription: ' + self.description" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="JobEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::JobEntry">
+              <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nEmployer: ' + self.employer + '\nDescription: ' + self.description" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="EducationEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::EducationEntry">
+              <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nLevel: ' + self.level + '\nSchool: ' + self.school" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.header">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="SkillsContainer" semanticCandidatesExpression="feature:sections" domainClass="cV::Skills">
+          <subNodeMappings name="SkillEntryNode" semanticCandidatesExpression="feature:skills" domainClass="cV::SkillEntry">
+            <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Title: ' + self.title + '\nSkill Value: ' + self.skillValue" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+            </style>
+          </subNodeMappings>
+          <subContainerMappings name="FieldContainer" semanticCandidatesExpression="feature:fields" domainClass="cV::Field">
+            <subNodeMappings name="TextNode" semanticCandidatesExpression="feature:items" domainClass="cV::Text">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:items" domainClass="cV::Date">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="UrlNode" semanticCandidatesExpression="feature:items" domainClass="cV::URL">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.name + '\nURL: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="ImageNode" semanticCandidatesExpression="feature:items" domainClass="cV::Image">
+              <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql:'Image (' + self.width + ',' + self.height + '): ' + self.value" labelAlignment="LEFT" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="SkillEntryNode" semanticCandidatesExpression="feature:items" domainClass="cV::SkillEntry">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Title: ' + self.title + '\nSkill Value: ' + self.skillValue" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              </style>
+            </subNodeMappings>
+            <subContainerMappings name="BibliographicEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::BibliographicEntry">
+              <subNodeMappings name="UrlNode" semanticCandidatesExpression="feature:url" domainClass="cV::URL">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.name + '\nURL: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nAuthor: ' + self.author + '\nYear: ' + self.year + '\nDescription: ' + self.description" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="JobEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::JobEntry">
+              <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nEmployer: ' + self.employer + '\nDescription: ' + self.description" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="EducationEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::EducationEntry">
+              <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nLevel: ' + self.level + '\nSchool: ' + self.school" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.title">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+          </style>
+        </containerMappings>
+        <containerMappings name="SectionContainer" semanticCandidatesExpression="aql:self.sections->reject(a | a.oclIsTypeOf(cV::PersonalData))->reject(a | a.oclIsTypeOf(cV::Contacts))->reject(a | a.oclIsTypeOf(cV::WorkExperience))->reject(a | a.oclIsTypeOf(cV::Skills))->reject(a | a.oclIsTypeOf(cV::Education))" domainClass="cV::Section" childrenPresentation="HorizontalStack">
+          <subContainerMappings name="FieldContainer" semanticCandidatesExpression="feature:fields" domainClass="cV::Field">
+            <subNodeMappings name="TextNode" semanticCandidatesExpression="feature:items" domainClass="cV::Text">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:items" domainClass="cV::Date">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="UrlNode" semanticCandidatesExpression="feature:items" domainClass="cV::URL">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.name + '\nURL: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="ImageNode" semanticCandidatesExpression="feature:items" domainClass="cV::Image">
+              <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql:'Image (' + self.width + ',' + self.height + '): ' + self.value" labelAlignment="LEFT" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="SkillEntryNode" semanticCandidatesExpression="feature:items" domainClass="cV::SkillEntry">
+              <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Title: ' + self.title + '\nSkill Value: ' + self.skillValue" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_purple']"/>
+              </style>
+            </subNodeMappings>
+            <subContainerMappings name="BibliographicEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::BibliographicEntry">
+              <subNodeMappings name="UrlNode" semanticCandidatesExpression="feature:url" domainClass="cV::URL">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Name: ' + self.name + '\nURL: ' + self.value" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_blue']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nAuthor: ' + self.author + '\nYear: ' + self.year + '\nDescription: ' + self.description" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_red']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="JobEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::JobEntry">
+              <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nEmployer: ' + self.employer + '\nDescription: ' + self.description" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_yellow']"/>
+              </style>
+            </subContainerMappings>
+            <subContainerMappings name="EducationEntryContainer" semanticCandidatesExpression="feature:items" domainClass="cV::EducationEntry">
+              <subNodeMappings name="DateNode" semanticCandidatesExpression="feature:date" domainClass="cV::Date">
+                <style xsi:type="style:SquareDescription" labelSize="12" showIcon="false" labelExpression="aql:'Start Date: ' + self.start_date + '\nEnd Date: ' + self.ending_date" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW" width="20" height="10">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+                </style>
+              </subNodeMappings>
+              <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title + '\nLevel: ' + self.level + '\nSchool: ' + self.school" labelAlignment="LEFT" roundedCorner="true">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              </style>
+            </subContainerMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title" roundedCorner="true">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='green']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.header" roundedCorner="true">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Tools">
+          <ownedTools xsi:type="tool:ToolGroup" name="Generic Creation Tools">
+            <tools xsi:type="tool:ContainerCreationDescription" name="Section Container" containerMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Section" referenceName="sections" variableName="section"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:ContainerCreationDescription" name="Field Container" containerMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Field" referenceName="fields"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="Text Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer']/@subNodeMappings[name='TextNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Text" referenceName="items"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="Date Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer']/@subNodeMappings[name='DateNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Date" referenceName="items"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="URL Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer']/@subNodeMappings[name='UrlNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::URL" referenceName="items"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="Image Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer']/@subNodeMappings[name='ImageNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Image" referenceName="items"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="SkillEntry Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer']/@subNodeMappings[name='SkillEntryNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::SkillEntry" referenceName="items"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:ContainerCreationDescription" name="BibliographicEntry Container" containerMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer']/@subContainerMappings[name='BibliographicEntryContainer']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::BibliographicEntry" referenceName="items"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="BibliographicEntry URL Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer']/@subContainerMappings[name='BibliographicEntryContainer']/@subNodeMappings[name='UrlNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::URL" referenceName="url"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:ContainerCreationDescription" name="JobEntry Container" containerMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer']/@subContainerMappings[name='JobEntryContainer']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::JobEntry" referenceName="items"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="JobEntry Date Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer']/@subContainerMappings[name='JobEntryContainer']/@subNodeMappings[name='DateNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Date" referenceName="date"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:ContainerCreationDescription" name="EducationEntry Container" containerMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer']/@subContainerMappings[name='EducationEntryContainer']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::EducationEntry" referenceName="items"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="EducationEntry Date Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer']/@subContainerMappings[name='EducationEntryContainer']/@subNodeMappings[name='DateNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Date" referenceName="date"/>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="PersonalData Creation Tools">
+            <tools xsi:type="tool:ContainerCreationDescription" name="PersonalDataCreationTool" containerMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='PersonalDataContainer']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::PersonalData" referenceName="sections"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="PersonalData Name Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='PersonalDataContainer']/@subNodeMappings[name='NameNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Text" referenceName="name"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="PersonalData AboutMe Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='PersonalDataContainer']/@subNodeMappings[name='AboutMeNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Text" referenceName="about_me"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="PersonalData Address Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='PersonalDataContainer']/@subNodeMappings[name='AddressNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Text" referenceName="address"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="PersonalData Date Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='PersonalDataContainer']/@subNodeMappings[name='BirthDateNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Date" referenceName="birthdate"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="PersonalData Image Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='PersonalDataContainer']/@subNodeMappings[name='PhotoNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Image" referenceName="photo"/>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="Contacts Creation Tools">
+            <tools xsi:type="tool:ContainerCreationDescription" name="ContactsCreationTool" containerMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='ContactsContainer']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Contacts" referenceName="sections"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="Contacts Phone Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='ContactsContainer']/@subNodeMappings[name='PhoneNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Text" referenceName="phone"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="Contacts Email Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='ContactsContainer']/@subNodeMappings[name='EmailNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Text" referenceName="email"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="Contacts URL Node" nodeMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='ContactsContainer']/@subNodeMappings[name='UrlNode']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::URL" referenceName="links"/>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="Education Creation Tools">
+            <tools xsi:type="tool:ContainerCreationDescription" name="EducationCreationTool" containerMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='EducationContainer']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Education" referenceName="sections"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:ContainerCreationDescription" name="Education EducationEntry Container">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::EducationEntry" referenceName="educationEntries"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="Education EducationEntry Date Node">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Date" referenceName="date"/>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="WorkExperience Creation Tools">
+            <tools xsi:type="tool:ContainerCreationDescription" name="WorkExpressionCreationTool" containerMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='WorkExperienceContainer']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::WorkExperience" referenceName="sections"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:ContainerCreationDescription" name="WorkExperience JobEntry Container">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::JobEntry" referenceName="jobEntries"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="WorkExperience JobEntry Date Node">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Date" referenceName="date"/>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ToolGroup" name="Skills Creation Tools">
+            <tools xsi:type="tool:ContainerCreationDescription" name="SkillsCreationTool" containerMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SkillsContainer']">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Skills" referenceName="sections"/>
+              </initialOperation>
+            </tools>
+            <tools xsi:type="tool:NodeCreationDescription" name="Skills SkillEntry Node">
+              <variable name="container"/>
+              <viewVariable name="containerView"/>
+              <initialOperation>
+                <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::SkillEntry" referenceName="skills"/>
+              </initialOperation>
+            </tools>
+          </ownedTools>
+        </toolSections>
+      </defaultLayer>
+    </ownedRepresentations>
+    <ownedJavaExtensions qualifiedClassName="my.project.design.Services"/>
+  </ownedViewpoints>
+</description:Group>

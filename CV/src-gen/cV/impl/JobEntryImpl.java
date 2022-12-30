@@ -7,6 +7,7 @@ import cV.Date;
 import cV.JobEntry;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
@@ -71,7 +72,7 @@ public class JobEntryImpl extends ItemImpl implements JobEntry {
 	protected String employer = EMPLOYER_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getDate() <em>Date</em>}' reference.
+	 * The cached value of the '{@link #getDate() <em>Date</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @see #getDate()
@@ -168,15 +169,6 @@ public class JobEntryImpl extends ItemImpl implements JobEntry {
 	 * @generated
 	 */
 	public Date getDate() {
-		if (date != null && date.eIsProxy()) {
-			InternalEObject oldDate = (InternalEObject) date;
-			date = (Date) eResolveProxy(oldDate);
-			if (date != oldDate) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, CVPackage.JOB_ENTRY__DATE, oldDate,
-							date));
-			}
-		}
 		return date;
 	}
 
@@ -185,8 +177,18 @@ public class JobEntryImpl extends ItemImpl implements JobEntry {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Date basicGetDate() {
-		return date;
+	public NotificationChain basicSetDate(Date newDate, NotificationChain msgs) {
+		Date oldDate = date;
+		date = newDate;
+		if (eNotificationRequired()) {
+			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, CVPackage.JOB_ENTRY__DATE,
+					oldDate, newDate);
+			if (msgs == null)
+				msgs = notification;
+			else
+				msgs.add(notification);
+		}
+		return msgs;
 	}
 
 	/**
@@ -195,10 +197,19 @@ public class JobEntryImpl extends ItemImpl implements JobEntry {
 	 * @generated
 	 */
 	public void setDate(Date newDate) {
-		Date oldDate = date;
-		date = newDate;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.JOB_ENTRY__DATE, oldDate, date));
+		if (newDate != date) {
+			NotificationChain msgs = null;
+			if (date != null)
+				msgs = ((InternalEObject) date).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - CVPackage.JOB_ENTRY__DATE,
+						null, msgs);
+			if (newDate != null)
+				msgs = ((InternalEObject) newDate).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - CVPackage.JOB_ENTRY__DATE,
+						null, msgs);
+			msgs = basicSetDate(newDate, msgs);
+			if (msgs != null)
+				msgs.dispatch();
+		} else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, CVPackage.JOB_ENTRY__DATE, newDate, newDate));
 	}
 
 	/**
@@ -229,6 +240,20 @@ public class JobEntryImpl extends ItemImpl implements JobEntry {
 	 * @generated
 	 */
 	@Override
+	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
+		switch (featureID) {
+		case CVPackage.JOB_ENTRY__DATE:
+			return basicSetDate(null, msgs);
+		}
+		return super.eInverseRemove(otherEnd, featureID, msgs);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
 		case CVPackage.JOB_ENTRY__TITLE:
@@ -236,9 +261,7 @@ public class JobEntryImpl extends ItemImpl implements JobEntry {
 		case CVPackage.JOB_ENTRY__EMPLOYER:
 			return getEmployer();
 		case CVPackage.JOB_ENTRY__DATE:
-			if (resolve)
-				return getDate();
-			return basicGetDate();
+			return getDate();
 		case CVPackage.JOB_ENTRY__DESCRIPTION:
 			return getDescription();
 		}

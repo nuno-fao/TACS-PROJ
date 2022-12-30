@@ -78,13 +78,22 @@ public interface CVPackage extends EPackage {
 	int CV__SECTIONS = 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CV__NAME = 1;
+
+	/**
 	 * The number of structural features of the '<em>CV</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CV_FEATURE_COUNT = 1;
+	int CV_FEATURE_COUNT = 2;
 
 	/**
 	 * The operation id for the '<em>Obligatory contacts section</em>' operation.
@@ -354,13 +363,22 @@ public interface CVPackage extends EPackage {
 	int URL__VALUE = ITEM_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int URL__NAME = ITEM_FEATURE_COUNT + 1;
+
+	/**
 	 * The number of structural features of the '<em>URL</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int URL_FEATURE_COUNT = ITEM_FEATURE_COUNT + 1;
+	int URL_FEATURE_COUNT = ITEM_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of operations of the '<em>URL</em>' class.
@@ -464,13 +482,31 @@ public interface CVPackage extends EPackage {
 	int BIBLIOGRAPHIC_ENTRY__TITLE = ITEM_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Description</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BIBLIOGRAPHIC_ENTRY__DESCRIPTION = ITEM_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Url</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BIBLIOGRAPHIC_ENTRY__URL = ITEM_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Bibliographic Entry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int BIBLIOGRAPHIC_ENTRY_FEATURE_COUNT = ITEM_FEATURE_COUNT + 3;
+	int BIBLIOGRAPHIC_ENTRY_FEATURE_COUNT = ITEM_FEATURE_COUNT + 5;
 
 	/**
 	 * The operation id for the '<em>Check year</em>' operation.
@@ -510,7 +546,7 @@ public interface CVPackage extends EPackage {
 	int TABLE__HEADER = 0;
 
 	/**
-	 * The feature id for the '<em><b>Field</b></em>' reference.
+	 * The feature id for the '<em><b>Field</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -620,13 +656,58 @@ public interface CVPackage extends EPackage {
 	int PERSONAL_DATA__FIELDS = SECTION__FIELDS;
 
 	/**
+	 * The feature id for the '<em><b>Name</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSONAL_DATA__NAME = SECTION_FEATURE_COUNT + 0;
+
+	/**
+	 * The feature id for the '<em><b>Photo</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSONAL_DATA__PHOTO = SECTION_FEATURE_COUNT + 1;
+
+	/**
+	 * The feature id for the '<em><b>Birthdate</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSONAL_DATA__BIRTHDATE = SECTION_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>About me</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSONAL_DATA__ABOUT_ME = SECTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Address</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PERSONAL_DATA__ADDRESS = SECTION_FEATURE_COUNT + 4;
+
+	/**
 	 * The number of structural features of the '<em>Personal Data</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PERSONAL_DATA_FEATURE_COUNT = SECTION_FEATURE_COUNT + 0;
+	int PERSONAL_DATA_FEATURE_COUNT = SECTION_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of operations of the '<em>Personal Data</em>' class.
@@ -666,40 +747,31 @@ public interface CVPackage extends EPackage {
 	int CONTACTS__FIELDS = SECTION__FIELDS;
 
 	/**
-	 * The feature id for the '<em><b>Address</b></em>' reference.
+	 * The feature id for the '<em><b>Phone</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACTS__ADDRESS = SECTION_FEATURE_COUNT + 0;
+	int CONTACTS__PHONE = SECTION_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Phone</b></em>' reference.
+	 * The feature id for the '<em><b>Email</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACTS__PHONE = SECTION_FEATURE_COUNT + 1;
+	int CONTACTS__EMAIL = SECTION_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Email</b></em>' reference.
+	 * The feature id for the '<em><b>Links</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACTS__EMAIL = SECTION_FEATURE_COUNT + 2;
-
-	/**
-	 * The feature id for the '<em><b>Links</b></em>' reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int CONTACTS__LINKS = SECTION_FEATURE_COUNT + 3;
+	int CONTACTS__LINKS = SECTION_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Contacts</em>' class.
@@ -708,7 +780,7 @@ public interface CVPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CONTACTS_FEATURE_COUNT = SECTION_FEATURE_COUNT + 4;
+	int CONTACTS_FEATURE_COUNT = SECTION_FEATURE_COUNT + 3;
 
 	/**
 	 * The number of operations of the '<em>Contacts</em>' class.
@@ -803,7 +875,7 @@ public interface CVPackage extends EPackage {
 	int JOB_ENTRY__EMPLOYER = ITEM_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Date</b></em>' reference.
+	 * The feature id for the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -867,7 +939,7 @@ public interface CVPackage extends EPackage {
 	int EDUCATION_ENTRY__SCHOOL = ITEM_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Date</b></em>' reference.
+	 * The feature id for the '<em><b>Date</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -876,13 +948,22 @@ public interface CVPackage extends EPackage {
 	int EDUCATION_ENTRY__DATE = ITEM_FEATURE_COUNT + 2;
 
 	/**
+	 * The feature id for the '<em><b>Title</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int EDUCATION_ENTRY__TITLE = ITEM_FEATURE_COUNT + 3;
+
+	/**
 	 * The number of structural features of the '<em>Education Entry</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int EDUCATION_ENTRY_FEATURE_COUNT = ITEM_FEATURE_COUNT + 3;
+	int EDUCATION_ENTRY_FEATURE_COUNT = ITEM_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of operations of the '<em>Education Entry</em>' class.
@@ -1089,6 +1170,17 @@ public interface CVPackage extends EPackage {
 	EReference getCV_Sections();
 
 	/**
+	 * Returns the meta object for the attribute '{@link cV.CV#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see cV.CV#getName()
+	 * @see #getCV()
+	 * @generated
+	 */
+	EAttribute getCV_Name();
+
+	/**
 	 * Returns the meta object for the '{@link cV.CV#obligatory_contacts_section(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Obligatory contacts section</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1277,6 +1369,17 @@ public interface CVPackage extends EPackage {
 	EAttribute getURL_Value();
 
 	/**
+	 * Returns the meta object for the attribute '{@link cV.URL#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Name</em>'.
+	 * @see cV.URL#getName()
+	 * @see #getURL()
+	 * @generated
+	 */
+	EAttribute getURL_Name();
+
+	/**
 	 * Returns the meta object for class '{@link cV.Image <em>Image</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1363,6 +1466,28 @@ public interface CVPackage extends EPackage {
 	EAttribute getBibliographicEntry_Title();
 
 	/**
+	 * Returns the meta object for the attribute '{@link cV.BibliographicEntry#getDescription <em>Description</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Description</em>'.
+	 * @see cV.BibliographicEntry#getDescription()
+	 * @see #getBibliographicEntry()
+	 * @generated
+	 */
+	EAttribute getBibliographicEntry_Description();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link cV.BibliographicEntry#getUrl <em>Url</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Url</em>'.
+	 * @see cV.BibliographicEntry#getUrl()
+	 * @see #getBibliographicEntry()
+	 * @generated
+	 */
+	EReference getBibliographicEntry_Url();
+
+	/**
 	 * Returns the meta object for the '{@link cV.BibliographicEntry#check_year(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Check year</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1394,10 +1519,10 @@ public interface CVPackage extends EPackage {
 	EAttribute getTable_Header();
 
 	/**
-	 * Returns the meta object for the reference '{@link cV.Table#getField <em>Field</em>}'.
+	 * Returns the meta object for the containment reference '{@link cV.Table#getField <em>Field</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Field</em>'.
+	 * @return the meta object for the containment reference '<em>Field</em>'.
 	 * @see cV.Table#getField()
 	 * @see #getTable()
 	 * @generated
@@ -1457,6 +1582,61 @@ public interface CVPackage extends EPackage {
 	EClass getPersonalData();
 
 	/**
+	 * Returns the meta object for the containment reference '{@link cV.PersonalData#getName <em>Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Name</em>'.
+	 * @see cV.PersonalData#getName()
+	 * @see #getPersonalData()
+	 * @generated
+	 */
+	EReference getPersonalData_Name();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link cV.PersonalData#getPhoto <em>Photo</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Photo</em>'.
+	 * @see cV.PersonalData#getPhoto()
+	 * @see #getPersonalData()
+	 * @generated
+	 */
+	EReference getPersonalData_Photo();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link cV.PersonalData#getBirthdate <em>Birthdate</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Birthdate</em>'.
+	 * @see cV.PersonalData#getBirthdate()
+	 * @see #getPersonalData()
+	 * @generated
+	 */
+	EReference getPersonalData_Birthdate();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link cV.PersonalData#getAbout_me <em>About me</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>About me</em>'.
+	 * @see cV.PersonalData#getAbout_me()
+	 * @see #getPersonalData()
+	 * @generated
+	 */
+	EReference getPersonalData_About_me();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link cV.PersonalData#getAddress <em>Address</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Address</em>'.
+	 * @see cV.PersonalData#getAddress()
+	 * @see #getPersonalData()
+	 * @generated
+	 */
+	EReference getPersonalData_Address();
+
+	/**
 	 * Returns the meta object for class '{@link cV.Contacts <em>Contacts</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1467,21 +1647,10 @@ public interface CVPackage extends EPackage {
 	EClass getContacts();
 
 	/**
-	 * Returns the meta object for the reference '{@link cV.Contacts#getAddress <em>Address</em>}'.
+	 * Returns the meta object for the containment reference '{@link cV.Contacts#getPhone <em>Phone</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Address</em>'.
-	 * @see cV.Contacts#getAddress()
-	 * @see #getContacts()
-	 * @generated
-	 */
-	EReference getContacts_Address();
-
-	/**
-	 * Returns the meta object for the reference '{@link cV.Contacts#getPhone <em>Phone</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Phone</em>'.
+	 * @return the meta object for the containment reference '<em>Phone</em>'.
 	 * @see cV.Contacts#getPhone()
 	 * @see #getContacts()
 	 * @generated
@@ -1489,10 +1658,10 @@ public interface CVPackage extends EPackage {
 	EReference getContacts_Phone();
 
 	/**
-	 * Returns the meta object for the reference '{@link cV.Contacts#getEmail <em>Email</em>}'.
+	 * Returns the meta object for the containment reference '{@link cV.Contacts#getEmail <em>Email</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Email</em>'.
+	 * @return the meta object for the containment reference '<em>Email</em>'.
 	 * @see cV.Contacts#getEmail()
 	 * @see #getContacts()
 	 * @generated
@@ -1500,10 +1669,10 @@ public interface CVPackage extends EPackage {
 	EReference getContacts_Email();
 
 	/**
-	 * Returns the meta object for the reference list '{@link cV.Contacts#getLinks <em>Links</em>}'.
+	 * Returns the meta object for the containment reference list '{@link cV.Contacts#getLinks <em>Links</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference list '<em>Links</em>'.
+	 * @return the meta object for the containment reference list '<em>Links</em>'.
 	 * @see cV.Contacts#getLinks()
 	 * @see #getContacts()
 	 * @generated
@@ -1564,10 +1733,10 @@ public interface CVPackage extends EPackage {
 	EAttribute getJobEntry_Employer();
 
 	/**
-	 * Returns the meta object for the reference '{@link cV.JobEntry#getDate <em>Date</em>}'.
+	 * Returns the meta object for the containment reference '{@link cV.JobEntry#getDate <em>Date</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Date</em>'.
+	 * @return the meta object for the containment reference '<em>Date</em>'.
 	 * @see cV.JobEntry#getDate()
 	 * @see #getJobEntry()
 	 * @generated
@@ -1618,15 +1787,26 @@ public interface CVPackage extends EPackage {
 	EAttribute getEducationEntry_School();
 
 	/**
-	 * Returns the meta object for the reference '{@link cV.EducationEntry#getDate <em>Date</em>}'.
+	 * Returns the meta object for the containment reference '{@link cV.EducationEntry#getDate <em>Date</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Date</em>'.
+	 * @return the meta object for the containment reference '<em>Date</em>'.
 	 * @see cV.EducationEntry#getDate()
 	 * @see #getEducationEntry()
 	 * @generated
 	 */
 	EReference getEducationEntry_Date();
+
+	/**
+	 * Returns the meta object for the attribute '{@link cV.EducationEntry#getTitle <em>Title</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Title</em>'.
+	 * @see cV.EducationEntry#getTitle()
+	 * @see #getEducationEntry()
+	 * @generated
+	 */
+	EAttribute getEducationEntry_Title();
 
 	/**
 	 * Returns the meta object for class '{@link cV.WorkExperience <em>Work Experience</em>}'.
@@ -1763,6 +1943,14 @@ public interface CVPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CV__SECTIONS = eINSTANCE.getCV_Sections();
+
+		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CV__NAME = eINSTANCE.getCV_Name();
 
 		/**
 		 * The meta object literal for the '<em><b>Obligatory contacts section</b></em>' operation.
@@ -1925,6 +2113,14 @@ public interface CVPackage extends EPackage {
 		EAttribute URL__VALUE = eINSTANCE.getURL_Value();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute URL__NAME = eINSTANCE.getURL_Name();
+
+		/**
 		 * The meta object literal for the '{@link cV.impl.ImageImpl <em>Image</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -1993,6 +2189,22 @@ public interface CVPackage extends EPackage {
 		EAttribute BIBLIOGRAPHIC_ENTRY__TITLE = eINSTANCE.getBibliographicEntry_Title();
 
 		/**
+		 * The meta object literal for the '<em><b>Description</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute BIBLIOGRAPHIC_ENTRY__DESCRIPTION = eINSTANCE.getBibliographicEntry_Description();
+
+		/**
+		 * The meta object literal for the '<em><b>Url</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference BIBLIOGRAPHIC_ENTRY__URL = eINSTANCE.getBibliographicEntry_Url();
+
+		/**
 		 * The meta object literal for the '<em><b>Check year</b></em>' operation.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2020,7 +2232,7 @@ public interface CVPackage extends EPackage {
 		EAttribute TABLE__HEADER = eINSTANCE.getTable_Header();
 
 		/**
-		 * The meta object literal for the '<em><b>Field</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Field</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2073,6 +2285,46 @@ public interface CVPackage extends EPackage {
 		EClass PERSONAL_DATA = eINSTANCE.getPersonalData();
 
 		/**
+		 * The meta object literal for the '<em><b>Name</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERSONAL_DATA__NAME = eINSTANCE.getPersonalData_Name();
+
+		/**
+		 * The meta object literal for the '<em><b>Photo</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERSONAL_DATA__PHOTO = eINSTANCE.getPersonalData_Photo();
+
+		/**
+		 * The meta object literal for the '<em><b>Birthdate</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERSONAL_DATA__BIRTHDATE = eINSTANCE.getPersonalData_Birthdate();
+
+		/**
+		 * The meta object literal for the '<em><b>About me</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERSONAL_DATA__ABOUT_ME = eINSTANCE.getPersonalData_About_me();
+
+		/**
+		 * The meta object literal for the '<em><b>Address</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PERSONAL_DATA__ADDRESS = eINSTANCE.getPersonalData_Address();
+
+		/**
 		 * The meta object literal for the '{@link cV.impl.ContactsImpl <em>Contacts</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2083,15 +2335,7 @@ public interface CVPackage extends EPackage {
 		EClass CONTACTS = eINSTANCE.getContacts();
 
 		/**
-		 * The meta object literal for the '<em><b>Address</b></em>' reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference CONTACTS__ADDRESS = eINSTANCE.getContacts_Address();
-
-		/**
-		 * The meta object literal for the '<em><b>Phone</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Phone</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2099,7 +2343,7 @@ public interface CVPackage extends EPackage {
 		EReference CONTACTS__PHONE = eINSTANCE.getContacts_Phone();
 
 		/**
-		 * The meta object literal for the '<em><b>Email</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Email</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2107,7 +2351,7 @@ public interface CVPackage extends EPackage {
 		EReference CONTACTS__EMAIL = eINSTANCE.getContacts_Email();
 
 		/**
-		 * The meta object literal for the '<em><b>Links</b></em>' reference list feature.
+		 * The meta object literal for the '<em><b>Links</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2159,7 +2403,7 @@ public interface CVPackage extends EPackage {
 		EAttribute JOB_ENTRY__EMPLOYER = eINSTANCE.getJobEntry_Employer();
 
 		/**
-		 * The meta object literal for the '<em><b>Date</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Date</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
@@ -2201,12 +2445,20 @@ public interface CVPackage extends EPackage {
 		EAttribute EDUCATION_ENTRY__SCHOOL = eINSTANCE.getEducationEntry_School();
 
 		/**
-		 * The meta object literal for the '<em><b>Date</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Date</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
 		EReference EDUCATION_ENTRY__DATE = eINSTANCE.getEducationEntry_Date();
+
+		/**
+		 * The meta object literal for the '<em><b>Title</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute EDUCATION_ENTRY__TITLE = eINSTANCE.getEducationEntry_Title();
 
 		/**
 		 * The meta object literal for the '{@link cV.impl.WorkExperienceImpl <em>Work Experience</em>}' class.

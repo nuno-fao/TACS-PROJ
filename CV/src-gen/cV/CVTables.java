@@ -2,9 +2,9 @@
  *************************************************************************
  * This code is 100% auto-generated
  * from:
- *   platform:/resource/model/cV.ecore
+ *   /CV/model/cV.ecore
  * using:
- *   platform:/resource/model/cV.genmodel
+ *   /CV/model/cV.genmodel
  *   org.eclipse.ocl.examples.codegen.oclinecore.OCLinEcoreTables
  *
  * Do not edit it.
@@ -72,6 +72,7 @@ public class CVTables extends AbstractTables
 	public static final /*@NonInvalid*/ ClassId CLSSid_Education = CVTables.PACKid_http_c_s_s_www_example_org_s_cV.getClassId("Education", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_EducationEntry = CVTables.PACKid_http_c_s_s_www_example_org_s_cV.getClassId("EducationEntry", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Field = CVTables.PACKid_http_c_s_s_www_example_org_s_cV.getClassId("Field", 0);
+	public static final /*@NonInvalid*/ ClassId CLSSid_Image = CVTables.PACKid_http_c_s_s_www_example_org_s_cV.getClassId("Image", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_Item = CVTables.PACKid_http_c_s_s_www_example_org_s_cV.getClassId("Item", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_JobEntry = CVTables.PACKid_http_c_s_s_www_example_org_s_cV.getClassId("JobEntry", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_PersonalData = CVTables.PACKid_http_c_s_s_www_example_org_s_cV.getClassId("PersonalData", 0);
@@ -83,16 +84,11 @@ public class CVTables extends AbstractTables
 	public static final /*@NonInvalid*/ ClassId CLSSid_Text = CVTables.PACKid_http_c_s_s_www_example_org_s_cV.getClassId("Text", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_URL = CVTables.PACKid_http_c_s_s_www_example_org_s_cV.getClassId("URL", 0);
 	public static final /*@NonInvalid*/ ClassId CLSSid_WorkExperience = CVTables.PACKid_http_c_s_s_www_example_org_s_cV.getClassId("WorkExperience", 0);
-	public static final /*@NonInvalid*/ DataTypeId DATAid_EDate = CVTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore.getDataTypeId("EDate", 0);
 	public static final /*@NonInvalid*/ DataTypeId DATAid_EInt = CVTables.PACKid_http_c_s_s_www_eclipse_org_s_emf_s_2002_s_Ecore.getDataTypeId("EInt", 0);
 	public static final /*@NonInvalid*/ IntegerValue INT_0 = ValueUtil.integerValueOf("0");
 	public static final /*@NonInvalid*/ IntegerValue INT_1 = ValueUtil.integerValueOf("1");
 	public static final /*@NonInvalid*/ IntegerValue INT_5 = ValueUtil.integerValueOf("5");
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_PRIMid_String = TypeId.ORDERED_SET.getSpecializedId(TypeId.STRING);
-	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_Contacts = TypeId.BAG.getSpecializedId(CVTables.CLSSid_Contacts);
-	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_EducationEntry = TypeId.BAG.getSpecializedId(CVTables.CLSSid_EducationEntry);
-	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_JobEntry = TypeId.BAG.getSpecializedId(CVTables.CLSSid_JobEntry);
-	public static final /*@NonInvalid*/ CollectionTypeId BAG_CLSSid_Table = TypeId.BAG.getSpecializedId(CVTables.CLSSid_Table);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_EducationEntry = TypeId.ORDERED_SET.getSpecializedId(CVTables.CLSSid_EducationEntry);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Field = TypeId.ORDERED_SET.getSpecializedId(CVTables.CLSSid_Field);
 	public static final /*@NonInvalid*/ CollectionTypeId ORD_CLSSid_Item = TypeId.ORDERED_SET.getSpecializedId(CVTables.CLSSid_Item);
@@ -359,27 +355,31 @@ public class CVTables extends AbstractTables
 		}
 
 		public static final ExecutorProperty _BibliographicEntry__author = new EcoreExecutorProperty(CVPackage.Literals.BIBLIOGRAPHIC_ENTRY__AUTHOR, Types._BibliographicEntry, 0);
-		public static final ExecutorProperty _BibliographicEntry__title = new EcoreExecutorProperty(CVPackage.Literals.BIBLIOGRAPHIC_ENTRY__TITLE, Types._BibliographicEntry, 1);
-		public static final ExecutorProperty _BibliographicEntry__year = new EcoreExecutorProperty(CVPackage.Literals.BIBLIOGRAPHIC_ENTRY__YEAR, Types._BibliographicEntry, 2);
+		public static final ExecutorProperty _BibliographicEntry__description = new EcoreExecutorProperty(CVPackage.Literals.BIBLIOGRAPHIC_ENTRY__DESCRIPTION, Types._BibliographicEntry, 1);
+		public static final ExecutorProperty _BibliographicEntry__title = new EcoreExecutorProperty(CVPackage.Literals.BIBLIOGRAPHIC_ENTRY__TITLE, Types._BibliographicEntry, 2);
+		public static final ExecutorProperty _BibliographicEntry__url = new EcoreExecutorProperty(CVPackage.Literals.BIBLIOGRAPHIC_ENTRY__URL, Types._BibliographicEntry, 3);
+		public static final ExecutorProperty _BibliographicEntry__year = new EcoreExecutorProperty(CVPackage.Literals.BIBLIOGRAPHIC_ENTRY__YEAR, Types._BibliographicEntry, 4);
 
-		public static final ExecutorProperty _CV__sections = new EcoreExecutorProperty(CVPackage.Literals.CV__SECTIONS, Types._CV, 0);
+		public static final ExecutorProperty _CV__name = new EcoreExecutorProperty(CVPackage.Literals.CV__NAME, Types._CV, 0);
+		public static final ExecutorProperty _CV__sections = new EcoreExecutorProperty(CVPackage.Literals.CV__SECTIONS, Types._CV, 1);
 
-		public static final ExecutorProperty _Contacts__address = new EcoreExecutorProperty(CVPackage.Literals.CONTACTS__ADDRESS, Types._Contacts, 0);
-		public static final ExecutorProperty _Contacts__email = new EcoreExecutorProperty(CVPackage.Literals.CONTACTS__EMAIL, Types._Contacts, 1);
-		public static final ExecutorProperty _Contacts__links = new EcoreExecutorProperty(CVPackage.Literals.CONTACTS__LINKS, Types._Contacts, 2);
-		public static final ExecutorProperty _Contacts__phone = new EcoreExecutorProperty(CVPackage.Literals.CONTACTS__PHONE, Types._Contacts, 3);
+		public static final ExecutorProperty _Contacts__email = new EcoreExecutorProperty(CVPackage.Literals.CONTACTS__EMAIL, Types._Contacts, 0);
+		public static final ExecutorProperty _Contacts__links = new EcoreExecutorProperty(CVPackage.Literals.CONTACTS__LINKS, Types._Contacts, 1);
+		public static final ExecutorProperty _Contacts__phone = new EcoreExecutorProperty(CVPackage.Literals.CONTACTS__PHONE, Types._Contacts, 2);
 
 		public static final ExecutorProperty _Date__ending_date = new EcoreExecutorProperty(CVPackage.Literals.DATE__ENDING_DATE, Types._Date, 0);
 		public static final ExecutorProperty _Date__start_date = new EcoreExecutorProperty(CVPackage.Literals.DATE__START_DATE, Types._Date, 1);
 		public static final ExecutorProperty _Date__EducationEntry__date = new ExecutorPropertyWithImplementation("EducationEntry", Types._Date, 2, new EcoreLibraryOppositeProperty(CVPackage.Literals.EDUCATION_ENTRY__DATE));
 		public static final ExecutorProperty _Date__JobEntry__date = new ExecutorPropertyWithImplementation("JobEntry", Types._Date, 3, new EcoreLibraryOppositeProperty(CVPackage.Literals.JOB_ENTRY__DATE));
+		public static final ExecutorProperty _Date__PersonalData__birthdate = new ExecutorPropertyWithImplementation("PersonalData", Types._Date, 4, new EcoreLibraryOppositeProperty(CVPackage.Literals.PERSONAL_DATA__BIRTHDATE));
 
 		public static final ExecutorProperty _Education__educationEntries = new EcoreExecutorProperty(CVPackage.Literals.EDUCATION__EDUCATION_ENTRIES, Types._Education, 0);
 
 		public static final ExecutorProperty _EducationEntry__date = new EcoreExecutorProperty(CVPackage.Literals.EDUCATION_ENTRY__DATE, Types._EducationEntry, 0);
 		public static final ExecutorProperty _EducationEntry__level = new EcoreExecutorProperty(CVPackage.Literals.EDUCATION_ENTRY__LEVEL, Types._EducationEntry, 1);
 		public static final ExecutorProperty _EducationEntry__school = new EcoreExecutorProperty(CVPackage.Literals.EDUCATION_ENTRY__SCHOOL, Types._EducationEntry, 2);
-		public static final ExecutorProperty _EducationEntry__Education__educationEntries = new ExecutorPropertyWithImplementation("Education", Types._EducationEntry, 3, new EcoreLibraryOppositeProperty(CVPackage.Literals.EDUCATION__EDUCATION_ENTRIES));
+		public static final ExecutorProperty _EducationEntry__title = new EcoreExecutorProperty(CVPackage.Literals.EDUCATION_ENTRY__TITLE, Types._EducationEntry, 3);
+		public static final ExecutorProperty _EducationEntry__Education__educationEntries = new ExecutorPropertyWithImplementation("Education", Types._EducationEntry, 4, new EcoreLibraryOppositeProperty(CVPackage.Literals.EDUCATION__EDUCATION_ENTRIES));
 
 		public static final ExecutorProperty _Field__items = new EcoreExecutorProperty(CVPackage.Literals.FIELD__ITEMS, Types._Field, 0);
 		public static final ExecutorProperty _Field__title = new EcoreExecutorProperty(CVPackage.Literals.FIELD__TITLE, Types._Field, 1);
@@ -389,6 +389,7 @@ public class CVTables extends AbstractTables
 		public static final ExecutorProperty _Image__height = new EcoreExecutorProperty(CVPackage.Literals.IMAGE__HEIGHT, Types._Image, 0);
 		public static final ExecutorProperty _Image__value = new EcoreExecutorProperty(CVPackage.Literals.IMAGE__VALUE, Types._Image, 1);
 		public static final ExecutorProperty _Image__width = new EcoreExecutorProperty(CVPackage.Literals.IMAGE__WIDTH, Types._Image, 2);
+		public static final ExecutorProperty _Image__PersonalData__photo = new ExecutorPropertyWithImplementation("PersonalData", Types._Image, 3, new EcoreLibraryOppositeProperty(CVPackage.Literals.PERSONAL_DATA__PHOTO));
 
 		public static final ExecutorProperty _Item__Field__items = new ExecutorPropertyWithImplementation("Field", Types._Item, 0, new EcoreLibraryOppositeProperty(CVPackage.Literals.FIELD__ITEMS));
 		public static final ExecutorProperty _Item__TableRow__items = new ExecutorPropertyWithImplementation("TableRow", Types._Item, 1, new EcoreLibraryOppositeProperty(CVPackage.Literals.TABLE_ROW__ITEMS));
@@ -398,6 +399,12 @@ public class CVTables extends AbstractTables
 		public static final ExecutorProperty _JobEntry__employer = new EcoreExecutorProperty(CVPackage.Literals.JOB_ENTRY__EMPLOYER, Types._JobEntry, 2);
 		public static final ExecutorProperty _JobEntry__title = new EcoreExecutorProperty(CVPackage.Literals.JOB_ENTRY__TITLE, Types._JobEntry, 3);
 		public static final ExecutorProperty _JobEntry__WorkExperience__jobEntries = new ExecutorPropertyWithImplementation("WorkExperience", Types._JobEntry, 4, new EcoreLibraryOppositeProperty(CVPackage.Literals.WORK_EXPERIENCE__JOB_ENTRIES));
+
+		public static final ExecutorProperty _PersonalData__about_me = new EcoreExecutorProperty(CVPackage.Literals.PERSONAL_DATA__ABOUT_ME, Types._PersonalData, 0);
+		public static final ExecutorProperty _PersonalData__address = new EcoreExecutorProperty(CVPackage.Literals.PERSONAL_DATA__ADDRESS, Types._PersonalData, 1);
+		public static final ExecutorProperty _PersonalData__birthdate = new EcoreExecutorProperty(CVPackage.Literals.PERSONAL_DATA__BIRTHDATE, Types._PersonalData, 2);
+		public static final ExecutorProperty _PersonalData__name = new EcoreExecutorProperty(CVPackage.Literals.PERSONAL_DATA__NAME, Types._PersonalData, 3);
+		public static final ExecutorProperty _PersonalData__photo = new EcoreExecutorProperty(CVPackage.Literals.PERSONAL_DATA__PHOTO, Types._PersonalData, 4);
 
 		public static final ExecutorProperty _Section__fields = new EcoreExecutorProperty(CVPackage.Literals.SECTION__FIELDS, Types._Section, 0);
 		public static final ExecutorProperty _Section__header = new EcoreExecutorProperty(CVPackage.Literals.SECTION__HEADER, Types._Section, 1);
@@ -418,12 +425,16 @@ public class CVTables extends AbstractTables
 		public static final ExecutorProperty _TableRow__Table__rows = new ExecutorPropertyWithImplementation("Table", Types._TableRow, 1, new EcoreLibraryOppositeProperty(CVPackage.Literals.TABLE__ROWS));
 
 		public static final ExecutorProperty _Text__value = new EcoreExecutorProperty(CVPackage.Literals.TEXT__VALUE, Types._Text, 0);
-		public static final ExecutorProperty _Text__Contacts__address = new ExecutorPropertyWithImplementation("Contacts", Types._Text, 1, new EcoreLibraryOppositeProperty(CVPackage.Literals.CONTACTS__ADDRESS));
-		public static final ExecutorProperty _Text__Contacts__email = new ExecutorPropertyWithImplementation("Contacts", Types._Text, 2, new EcoreLibraryOppositeProperty(CVPackage.Literals.CONTACTS__EMAIL));
-		public static final ExecutorProperty _Text__Contacts__phone = new ExecutorPropertyWithImplementation("Contacts", Types._Text, 3, new EcoreLibraryOppositeProperty(CVPackage.Literals.CONTACTS__PHONE));
+		public static final ExecutorProperty _Text__Contacts__email = new ExecutorPropertyWithImplementation("Contacts", Types._Text, 1, new EcoreLibraryOppositeProperty(CVPackage.Literals.CONTACTS__EMAIL));
+		public static final ExecutorProperty _Text__Contacts__phone = new ExecutorPropertyWithImplementation("Contacts", Types._Text, 2, new EcoreLibraryOppositeProperty(CVPackage.Literals.CONTACTS__PHONE));
+		public static final ExecutorProperty _Text__PersonalData__about_me = new ExecutorPropertyWithImplementation("PersonalData", Types._Text, 3, new EcoreLibraryOppositeProperty(CVPackage.Literals.PERSONAL_DATA__ABOUT_ME));
+		public static final ExecutorProperty _Text__PersonalData__address = new ExecutorPropertyWithImplementation("PersonalData", Types._Text, 4, new EcoreLibraryOppositeProperty(CVPackage.Literals.PERSONAL_DATA__ADDRESS));
+		public static final ExecutorProperty _Text__PersonalData__name = new ExecutorPropertyWithImplementation("PersonalData", Types._Text, 5, new EcoreLibraryOppositeProperty(CVPackage.Literals.PERSONAL_DATA__NAME));
 
-		public static final ExecutorProperty _URL__value = new EcoreExecutorProperty(CVPackage.Literals.URL__VALUE, Types._URL, 0);
-		public static final ExecutorProperty _URL__Contacts__links = new ExecutorPropertyWithImplementation("Contacts", Types._URL, 1, new EcoreLibraryOppositeProperty(CVPackage.Literals.CONTACTS__LINKS));
+		public static final ExecutorProperty _URL__name = new EcoreExecutorProperty(CVPackage.Literals.URL__NAME, Types._URL, 0);
+		public static final ExecutorProperty _URL__value = new EcoreExecutorProperty(CVPackage.Literals.URL__VALUE, Types._URL, 1);
+		public static final ExecutorProperty _URL__BibliographicEntry__url = new ExecutorPropertyWithImplementation("BibliographicEntry", Types._URL, 2, new EcoreLibraryOppositeProperty(CVPackage.Literals.BIBLIOGRAPHIC_ENTRY__URL));
+		public static final ExecutorProperty _URL__Contacts__links = new ExecutorPropertyWithImplementation("Contacts", Types._URL, 3, new EcoreLibraryOppositeProperty(CVPackage.Literals.CONTACTS__LINKS));
 
 		public static final ExecutorProperty _WorkExperience__jobEntries = new EcoreExecutorProperty(CVPackage.Literals.WORK_EXPERIENCE__JOB_ENTRIES, Types._WorkExperience, 0);
 		static {
@@ -1310,20 +1321,22 @@ public class CVTables extends AbstractTables
 
 		private static final ExecutorProperty /*@NonNull*/ [] _BibliographicEntry = {
 			CVTables.Properties._BibliographicEntry__author,
+			CVTables.Properties._BibliographicEntry__description,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			CVTables.Properties._BibliographicEntry__title,
+			CVTables.Properties._BibliographicEntry__url,
 			CVTables.Properties._BibliographicEntry__year
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _CV = {
+			CVTables.Properties._CV__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			CVTables.Properties._CV__sections
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Contacts = {
-			CVTables.Properties._Contacts__address,
 			CVTables.Properties._Contacts__email,
 			CVTables.Properties._Section__fields,
 			CVTables.Properties._Section__header,
@@ -1353,7 +1366,8 @@ public class CVTables extends AbstractTables
 			CVTables.Properties._EducationEntry__level,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
-			CVTables.Properties._EducationEntry__school
+			CVTables.Properties._EducationEntry__school,
+			CVTables.Properties._EducationEntry__title
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Field = {
@@ -1386,10 +1400,15 @@ public class CVTables extends AbstractTables
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _PersonalData = {
+			CVTables.Properties._PersonalData__about_me,
+			CVTables.Properties._PersonalData__address,
+			CVTables.Properties._PersonalData__birthdate,
 			CVTables.Properties._Section__fields,
 			CVTables.Properties._Section__header,
+			CVTables.Properties._PersonalData__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
-			OCLstdlibTables.Properties._OclElement__oclContents
+			OCLstdlibTables.Properties._OclElement__oclContents,
+			CVTables.Properties._PersonalData__photo
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _Section = {
@@ -1436,6 +1455,7 @@ public class CVTables extends AbstractTables
 		};
 
 		private static final ExecutorProperty /*@NonNull*/ [] _URL = {
+			CVTables.Properties._URL__name,
 			OCLstdlibTables.Properties._OclElement__oclContainer,
 			OCLstdlibTables.Properties._OclElement__oclContents,
 			CVTables.Properties._URL__value

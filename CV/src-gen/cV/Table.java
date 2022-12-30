@@ -3,7 +3,6 @@
 package cV;
 
 import java.util.Map;
-
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
@@ -41,22 +40,22 @@ public interface Table extends EObject {
 	EList<String> getHeader();
 
 	/**
-	 * Returns the value of the '<em><b>Field</b></em>' reference.
+	 * Returns the value of the '<em><b>Field</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Field</em>' reference.
+	 * @return the value of the '<em>Field</em>' containment reference.
 	 * @see #setField(Field)
 	 * @see cV.CVPackage#getTable_Field()
-	 * @model required="true"
+	 * @model containment="true" required="true"
 	 * @generated
 	 */
 	Field getField();
 
 	/**
-	 * Sets the value of the '{@link cV.Table#getField <em>Field</em>}' reference.
+	 * Sets the value of the '{@link cV.Table#getField <em>Field</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Field</em>' reference.
+	 * @param value the new value of the '<em>Field</em>' containment reference.
 	 * @see #getField()
 	 * @generated
 	 */
