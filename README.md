@@ -75,7 +75,7 @@ With this, a user has all the tools to make almost anything. Regardless, there i
 The existing Metamodel is similar to the previous one. The only diference is on the connections between items and the fields. Instead of being simple references, now they are aggregates of 1..1. This was made in order to improve the usability of the Sirius creation tools.
 
 ### Acceleo
-The CV.acceleo module contains the Acceleo project. To run, you need to configure as a java application like in the ![tutorial](https://wiki.eclipse.org/Acceleo/Getting_Started), choose the instance of the **Model** you want to run for and choose the LatexModel folder (inside CV.acceleo module) as the **Target**.
+The CV.acceleo module contains the Acceleo project. To run, you need to configure as a java application like in the [tutorial](https://wiki.eclipse.org/Acceleo/Getting_Started), choose the instance of the **Model** you want to run for and choose the LatexModel folder (inside CV.acceleo module) as the **Target**.
 
 > ![image](https://user-images.githubusercontent.com/50016564/210088399-7008f634-bb1f-4afe-acf7-e4f4d4929f68.png)
 
@@ -87,7 +87,7 @@ After running, the LatexModel directory should look like this:
 
 After that, you just need to use you preferred LaTeX editing/publishing tool (we used Overleaf), upload this folder as a project and compile to generate a pdf file.
 
-We chose to output our instance into LaTeX because, using a premade model we can get a lot of structure and a clean output without much hassle. We decided to use ![this](https://www.overleaf.com/latex/templates/lean-latex-resume/sjbtgfrzjkdw) template as a starting point because it provides the simple generic structures that we had envisioned for our model.
+We chose to output our instance into LaTeX because, using a premade model we can get a lot of structure and a clean output without much hassle. We decided to use [this](https://www.overleaf.com/latex/templates/lean-latex-resume/sjbtgfrzjkdw) template as a starting point because it provides the simple generic structures that we had envisioned for our model.
 Of course, we needed to make a few changes to the LaTeX model because of the abstraction level in our model. This proved rather complicated due to little understanding we have of the software.
 
 The whole model could be translated to LaTeX with a few exceptions:
