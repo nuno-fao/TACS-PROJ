@@ -5,6 +5,7 @@ package cV.util;
 import cV.*;
 
 import java.util.Map;
+
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
 
@@ -219,14 +220,14 @@ public class CVValidator extends EObjectValidator {
 	}
 
 	/**
-	 * Validates the obligatory_personal_data_section constraint of '<em>CV</em>'.
+	 * Validates the at_most_one_work_experience_section constraint of '<em>CV</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validateCV_obligatory_personal_data_section(CV cv, DiagnosticChain diagnostics,
+	public boolean validateCV_at_most_one_work_experience_section(CV cv, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
-		return cv.obligatory_personal_data_section(diagnostics, context);
+		return cv.at_most_one_work_experience_section(diagnostics, context);
 	}
 
 	/**
@@ -241,6 +242,17 @@ public class CVValidator extends EObjectValidator {
 	}
 
 	/**
+	 * Validates the obligatory_personal_data_section constraint of '<em>CV</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateCV_obligatory_personal_data_section(CV cv, DiagnosticChain diagnostics,
+			Map<Object, Object> context) {
+		return cv.obligatory_personal_data_section(diagnostics, context);
+	}
+
+	/**
 	 * Validates the at_most_one_education_section constraint of '<em>CV</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -249,17 +261,6 @@ public class CVValidator extends EObjectValidator {
 	public boolean validateCV_at_most_one_education_section(CV cv, DiagnosticChain diagnostics,
 			Map<Object, Object> context) {
 		return cv.at_most_one_education_section(diagnostics, context);
-	}
-
-	/**
-	 * Validates the at_most_one_work_experience_section constraint of '<em>CV</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validateCV_at_most_one_work_experience_section(CV cv, DiagnosticChain diagnostics,
-			Map<Object, Object> context) {
-		return cv.at_most_one_work_experience_section(diagnostics, context);
 	}
 
 	/**

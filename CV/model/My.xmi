@@ -1,1 +1,91 @@
-/home/miguel/Documentos/faculdade/5_1/tacs/sirius/cvModel/My.cv
+<?xml version="1.0" encoding="UTF-8"?>
+<cV:CV xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cV="http://www.example.org/cV" xsi:schemaLocation="http://www.example.org/cV cV.ecore" name="John Doe">
+  <sections xsi:type="cV:PersonalData" header="Personal Data">
+    <fields title="Nationalities">
+      <items xsi:type="cV:Text" value="Portuguese"/>
+      <items xsi:type="cV:Text" value="Spanish"/>
+      <items xsi:type="cV:Text" value="English"/>
+    </fields>
+    <name value="John Doe"/>
+    <photo value="url.com" width="30" height="30"/>
+    <birthdate start_date="1 January 1989"/>
+    <about_me value="I am a flexible and experienced insurance administrator with excellent time management skills. I am a good communicator with proven inter personal skills and am used to working in a team whilst also being capable of using own initiative. I am skilled In dealing with problems in a resourceful manner and negotiating to achieve beneficial agreement. I am always enthusiastic to learn and undertake new challenges."/>
+    <address value="123 Street"/>
+  </sections>
+  <sections xsi:type="cV:Contacts" header="Contacts">
+    <fields title="Social Media">
+      <items xsi:type="cV:URL" value="fb.com/username" name="Facebook"/>
+      <items xsi:type="cV:URL" value="linked.in/profile" name="LinkedIn"/>
+    </fields>
+    <phone value="+351 91778877"/>
+    <email value="youremail@yoursite.com"/>
+    <links value="yourwebsite.com" name="my website"/>
+    <links value="github.com/mypage" name="github"/>
+  </sections>
+  <sections xsi:type="cV:Education" header="Education">
+    <fields title="Informal Education">
+      <items xsi:type="cV:Text" value="Scout for 13 years"/>
+    </fields>
+    <educationEntries level="Bachelor's" school="FEUP" title="Computer Science">
+      <date start_date="2015" ending_date="2018"/>
+    </educationEntries>
+    <educationEntries level="Master's" school="FEUP" title="Artificial Intelligence">
+      <date start_date="2018" ending_date="2020"/>
+    </educationEntries>
+    <educationEntries level="PhD" school="UMinho" title="Neural Networks">
+      <date start_date="2020" ending_date="2022"/>
+    </educationEntries>
+  </sections>
+  <sections xsi:type="cV:WorkExperience" header="Work Experience">
+    <fields title="Education Jobs">
+      <items xsi:type="cV:JobEntry" title="Summer Camp Monitor" employer="City Council" description="Taking care of and entertaining children">
+        <date start_date="Summer 2020"/>
+      </items>
+    </fields>
+    <jobEntries title="Junior developer" employer="YourCompanyTM" description="E-commerce software developer">
+      <date start_date="March 2020" ending_date="August 2020"/>
+    </jobEntries>
+    <jobEntries title="Monitor" employer="FEUP" description="Aiding students with their work">
+      <date start_date="february 2021" ending_date="june 2021"/>
+    </jobEntries>
+  </sections>
+  <sections xsi:type="cV:Skills" header="Skills" title="Programming Skills">
+    <fields title="Other Skills">
+      <items xsi:type="cV:SkillEntry" title="Baking Cookies" skillValue="4"/>
+      <items xsi:type="cV:SkillEntry" title="Bending it like Beckham" skillValue="1"/>
+    </fields>
+    <fields title="Soft Skills">
+      <items xsi:type="cV:SkillEntry" title="Communication" skillValue="4"/>
+      <items xsi:type="cV:SkillEntry" title="Leadership" skillValue="2"/>
+      <items xsi:type="cV:Text" value="Custom Text Item"/>
+    </fields>
+    <fields title="Custom Field">
+      <items xsi:type="cV:Text" value="Juggling"/>
+    </fields>
+    <skills title="Java" skillValue="4"/>
+    <skills title="Python" skillValue="3"/>
+    <skills title="React" skillValue="5"/>
+  </sections>
+  <sections header="Interests">
+    <fields title="Hobbies">
+      <items xsi:type="cV:Text" value="Reading"/>
+      <items xsi:type="cV:Text" value="VideoGames"/>
+      <items xsi:type="cV:Text" value="Gardening"/>
+    </fields>
+    <fields title="Lifestyle">
+      <items xsi:type="cV:Text" value="Gym"/>
+      <items xsi:type="cV:Text" value="Trailing"/>
+      <items xsi:type="cV:Text" value="Family"/>
+    </fields>
+  </sections>
+  <sections header="Custom Section">
+    <fields title="Custom Field">
+      <items xsi:type="cV:BibliographicEntry" author="Doe, J." year="2077" title="Example of a Bibliographic Entry Item" description="This is how a Bibliographic Entry is graphically displayed.">
+        <url value="www.url.to.the.paper" name="Bibliographic Entry URL"/>
+      </items>
+      <items xsi:type="cV:JobEntry" title="Floor cleaner" employer="Floor Gang" description="Custom Fields can have whatever Items you want, even job entries representing side hustles like this one">
+        <date start_date="2000" ending_date="2100"/>
+      </items>
+    </fields>
+  </sections>
+</cV:CV>
