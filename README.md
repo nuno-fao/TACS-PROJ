@@ -71,6 +71,9 @@ With this, a user has all the tools to make almost anything. Regardless, there i
 
 ## Notes on the seconde assignment
 
+### Changes to the MetaModel
+The existing Metamodel is similar to the previous one. The only diference is on the connections between items and the fields. Instead of being simple references, now they are aggregates of 1..1. This was made in order to improve the usability of the Sirius creation tools.
+
 ### Acceleo
 The CV.acceleo module contains the Acceleo project. To run, you need to configure as a java application like in the ![tutorial](https://wiki.eclipse.org/Acceleo/Getting_Started), choose the instance of the **Model** you want to run for and choose the LatexModel folder (inside CV.acceleo module) as the **Target**.
 
