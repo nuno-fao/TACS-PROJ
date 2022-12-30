@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<cV:CV xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cV="http://www.example.org/cV" name="John Doe" xsi:schemaLocation="http://www.example.org/cV cV.ecore">
+<cV:CV xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cV="http://www.example.org/cV" name="John Doe">
   <sections xsi:type="cV:PersonalData" header="Personal Data">
     <fields title="Nationalities">
       <items xsi:type="cV:Text" value="Portuguese"/>
@@ -57,9 +57,9 @@
     <fields title="Soft Skills">
       <items xsi:type="cV:SkillEntry" title="Communication" skillValue="4"/>
       <items xsi:type="cV:SkillEntry" title="Leadership" skillValue="2"/>
-      <items xsi:type="cV:Text" value="chef skills"/>
+      <items xsi:type="cV:Text" value="Custom Text Item"/>
     </fields>
-    <fields title="Field inside Skills">
+    <fields title="Custom Field">
       <items xsi:type="cV:Text" value="Juggling"/>
     </fields>
     <skills title="Java" skillValue="4"/>
@@ -78,14 +78,12 @@
       <items xsi:type="cV:Text" value="Family"/>
     </fields>
   </sections>
-  <sections header="">
-    <fields title="">
-      <items xsi:type="cV:Text" value="text nice"/>
-      <items xsi:type="cV:Date" start_date="2044" ending_date="2045"/>
-      <items xsi:type="cV:BibliographicEntry" author="me" year="2077" title="CSI Miami" description="blah">
-        <url value="www.mi.am.i" name="turuturturut"/>
+  <sections header="Custom Section">
+    <fields title="Custom Field">
+      <items xsi:type="cV:BibliographicEntry" author="Doe, J." year="2077" title="Example of a Bibliographic Entry Item" description="This is how a Bibliographic Entry is graphically displayed.">
+        <url value="www.url.to.the.paper" name="Bibliographic Entry URL"/>
       </items>
-      <items xsi:type="cV:JobEntry" title="Floor cleaner" employer="floor gang au" description="clean floors">
+      <items xsi:type="cV:JobEntry" title="Floor cleaner" employer="Floor Gang" description="Custom Fields can have whatever Items you want, even job entries representing side hustles like this one">
         <date start_date="2000" ending_date="2100"/>
       </items>
     </fields>

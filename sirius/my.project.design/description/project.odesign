@@ -34,7 +34,7 @@
             </style>
           </subNodeMappings>
           <subNodeMappings name="PhotoNode" semanticCandidatesExpression="feature:photo" domainClass="cV::Image">
-            <style xsi:type="style:BundledImageDescription" labelSize="12" labelExpression="aql:'Photo (' + self.width + ',' + self.height + '): ' + self.value" labelAlignment="LEFT" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW">
+            <style xsi:type="style:BundledImageDescription" labelSize="12" showIcon="false" labelExpression="aql:'Photo (' + self.width + ',' + self.height + '): ' + self.value" labelAlignment="LEFT" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW">
               <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
               <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_chocolate']"/>
@@ -128,7 +128,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.header" roundedCorner="true">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.header" roundedCorner="true">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
@@ -356,7 +356,7 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.header" roundedCorner="true">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.header" roundedCorner="true">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
@@ -467,11 +467,11 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.header">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.header" roundedCorner="true">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
           </style>
         </containerMappings>
         <containerMappings name="SkillsContainer" semanticCandidatesExpression="feature:sections" domainClass="cV::Skills">
@@ -570,11 +570,11 @@
               <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_green']"/>
             </style>
           </subContainerMappings>
-          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" labelExpression="aql:self.title">
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false" labelExpression="aql:self.title" roundedCorner="true">
             <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
             <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
-            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
-            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_orange']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
           </style>
         </containerMappings>
         <containerMappings name="SectionContainer" semanticCandidatesExpression="aql:self.sections->reject(a | a.oclIsTypeOf(cV::PersonalData))->reject(a | a.oclIsTypeOf(cV::Contacts))->reject(a | a.oclIsTypeOf(cV::WorkExperience))->reject(a | a.oclIsTypeOf(cV::Skills))->reject(a | a.oclIsTypeOf(cV::Education))" domainClass="cV::Section" childrenPresentation="HorizontalStack">
@@ -682,7 +682,7 @@
                 <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cV::Section" referenceName="sections" variableName="section"/>
               </initialOperation>
             </tools>
-            <tools xsi:type="tool:ContainerCreationDescription" name="Field Container" containerMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer']">
+            <tools xsi:type="tool:ContainerCreationDescription" name="Field Container" containerMappings="//@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SectionContainer']/@subContainerMappings[name='FieldContainer'] //@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='ContactsContainer']/@subContainerMappings[name='FieldContainer'] //@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='EducationContainer']/@subContainerMappings[name='FieldContainer'] //@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='PersonalDataContainer']/@subContainerMappings[name='FieldContainer'] //@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='SkillsContainer']/@subContainerMappings[name='FieldContainer'] //@ownedViewpoints[name='CV%20Viewpoint']/@ownedRepresentations[name='CV%20diagram']/@defaultLayer/@containerMappings[name='WorkExperienceContainer']/@subContainerMappings[name='FieldContainer']">
               <variable name="container"/>
               <viewVariable name="containerView"/>
               <initialOperation>
