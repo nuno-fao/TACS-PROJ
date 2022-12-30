@@ -14,23 +14,23 @@ GitHub repository for TACS' (22/23) project
 
 Concepts|Intrisic Properties|Extrinsic Properties
 -|-|-
-CV | | An arbirtray number of *Sections*  
+CV | name: String | An arbirtray number of *Sections*  
 Section | header: String | An arbitrary number of *Fields*
 Field | title: String | An arbitrary number of *Items*
-PersonalData | | A **name** and an **about me**, two *Texts* <br> A **photo**, one *Image* <br> A **birthdate**, one *Date*
-Contacts | | An **address**, a **phone** number and an **email**, three *Texts* <br> An arbitrary number of *URLs*
+PersonalData | | A **name** and an **about me**, two *Texts* <br> A **photo**, one *Image* <br> A **birthdate**, one *Date*, an **address**
+Contacts | | a **phone** number and an **email**, three *Texts* <br> An arbitrary number of *URLs*
 Education | | An arbitrary number of *EducationEntries*
 WorkExperience | | An arbitrary number of *JobEntries*
 Skills | title: String | An arbitrary number of *SkillEntries*
 Table | header: list of Strings | One *Field* <br> An arbitrary number of *TableRows*
 TableRow | | An arbitrary number of *Items*
 Text | value: String |
-Date | start_date: Date <br> ending_date: Date |
-URL | value: String
+Date | start_date: String <br> ending_date: String |
+URL | value: String, name: String|
 Image | value: String <br> width: Integer <br> height: Integer |
-BibliographicEntry | author: String <br> year: Integer <br> title: String |
+BibliographicEntry | author: String <br> year: Integer <br> title: String <br> description: String | An **url**|
 JobEntry | title: String <br> employer: String <br> description: String | One *Date*
-EducationEntry | level: String <br> school: String | One *Date*
+EducationEntry | level: String <br> school: String <br> title: String | One *Date*
 SkillEntry | title: String <br> skillValue: Integer |
 
 ## OCL Restrictions
@@ -68,3 +68,20 @@ A ``Field`` should be thought of as a subsection. It can have a title and have m
 Furthermore, a ``Section`` is self-explanatory and is composed by ``Field`` while ``CV`` is composed by ``Section``. 
 
 With this, a user has all the tools to make almost anything. Regardless, there is too much freedom and very little structure and thats why we introduced to the metamodel subclasses of ``Section`` (PersonalData,Contacts,Education,WorkExperience,Skills). Each subclass represents a section that is present in almost every CV in a very similar structure across all of them. Each subclass has a defined set of attributes to use.
+
+## Notes on the seconde assignment
+
+### Acceleo
+The CV.acceleo module contains the Acceleo project. To run, you need to configure as a java application like in the ![tutorial](https://wiki.eclipse.org/Acceleo/Getting_Started), choose the instance of the **Model** you want to run for and choose the LatexModel folder (inside CV.acceleo module) as the **Target**.
+
+![image](https://user-images.githubusercontent.com/50016564/210088399-7008f634-bb1f-4afe-acf7-e4f4d4929f68.png)
+
+We chose to output our instance into LaTeX because, using a premade model we can get a lot of structure and a clean output without much hassle. We decided to use ![this](https://www.overleaf.com/latex/templates/lean-latex-resume/sjbtgfrzjkdw) template as a starting point because it provides the simple generic structures that we had envisioned for our model.
+Of course, we needed to make a few changes to the LaTeX model because of the abstraction level in our model. This proved rather complicated due to little understanding we have of the software.
+
+The whole model could be translated to LaTeX with a few exceptions:
+- Tables were not translated. The model did not contain any template for tables and although we could introduce it ourselves, it would completely break the structure of the document. Nevertheless, tables were present in our model as tool to have structure in the CV, and since LaTeX itself provides plenty of structure (especially with the template chosen) there was no real need to introduce this tool.
+- Generic sections and fields both must have titles
+- Generic fields can only have a maximum of 4 items. The generic field function in the LaTeX template can only accept 4 optional elements (besides the title which is mandatory), and we could not change it. Either way, for must use cases, 4 items of any type should be enough to represent any kind of information on a single field.
+
+![image](https://user-images.githubusercontent.com/50016564/210089436-a1ddf3f2-2add-454a-9f80-0f030023290d.png)
